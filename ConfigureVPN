@@ -1,0 +1,77 @@
+======================================VPN================================================
+
+
+1.在亚太1区创建一台路由器，在路由器配置界面的VPN标签页打开L2TP服务，添加账户及密码,以及PSK密码。
+
+2.给路由器绑定公网IP。
+
+3.进入路由器配置，在防火墙规则中添加允许下行UDP 1701端口（使用L2TP without  IPSec时）。或允许下行UDP 500、4500及ESP协议（使用L2TP over IPSec时）
+
+
+客户端配置
+a.如果想使用L2TP without  IPSec（不需要PSK），需要做而外配置：因为MAC OS和IOS默认使用L2TP over IPSec，如果想使用L2TP without  IPSec，需要以root权限修改配置文件：
+
+cd /etc/ppp  
+sudo vim options
+插入内容
+cd /etc/ppp  
+sudo vim options
+但IOS在不越狱的情况下无法修改，即不适合IPhone VPN拨号访问。
+
+b.如果想使用 L2TP over IPSec ，无需额外配置，只需要在VPN连接配置中填写相应的PSK就ok。
+
+4.mac端创建VPN网络（L2TP），在高级选项中勾选通过VPN连接发送所有流量
+
+#注意：unbuntu 默认不支持lt2p，可以安装插件，参考http://blog.z-proj.com/enabling-l2tp-over-ipsec-on-ubuntu-16-04/
+
+Ubutun 添加VPN
+选择网络图标
+Edit Connections...
+   ->Add 
+     选择 VPN　L2TP 
+   ->Create
+     Tab VPN
+     Gateway: 公网IP
+     User name: jjim_vpn
+     Password: Z*****
+       IPSec Setting...
+          Pre-shared key: last6digital
+    
+
+
+
+=======================ShadowSock==============================================
+如果仅仅是使用浏览器访问墙外网站：
+建议直接搭建使用ShadowSocks服务。
+1.继续上面的配置：在亚太区创建一台虚拟机，开始搭建ShadowSocks服务，步骤如下：
+参考文章：
+http://blog.csdn.net/fffy2366/article/details/43710369（内容有些滞后，启动脚本内容依然可以参考）
+最新代码的编译步骤参考：
+https://github.com/shadowsocks/shadowsocks-libev
+
+参考配置文件内容：
+[root@ss-server ~]# cat /etc/shadowsocks/config.json
+{
+"server": "0.0.0.0",
+"server_port": 8389,
+"local_address": "0.0.0.0",
+"local_port": 1080,
+"password": "zhu88jie",
+"timeout": 300,
+"method": "aes-256-cfb",
+"fast_open": false,
+"workers": 2
+}
+
+搭建服务完成后，需要配置防火墙与路由器端口转发规则（为了节省公网IP数量）
+1.创建一个私有网络（VPC），将之前创建的绑定了公网IP的路由器和部署了ss服务的VM连接入VPC
+2.在路由器上配置端口转发规则，将发往路由器的8989端口的报文转发给提供ss服务的VM（此处的端口要根据ss服务中配置的server_port来）
+
+客户端：
+安装shadowsockX客户端，开启自动代理模式，服务器配置指定 路由器工网IP：ss服务配置的端口（准确说是路由器上为其开放的转发端口，两者以不同），密码为ss服务配置的password。
+
+开始使用吧
+
+
+
+

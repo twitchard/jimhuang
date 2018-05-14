@@ -1,0 +1,168 @@
+
+- 亚太区创建一台主机， 申请公网IP(209.9.107.71)，主机绑定公网IP
+
+- Install pip 
+  (Mac OS)
+  wget 或者浏览器下载 get-pip.py 文件: https://bootstrap.pypa.io/get-pip.py
+  install pip: $sudo python get-pip.py
+  to certificate: pip --version
+  (Ubuntu)
+  sudo apt update
+  sudo apt install python-pip
+
+- Install shadowsocks on server and client   
+  sudo pip install shadowsocks
+  to certificate: which sslocal
+
+- Config shadowsock on client (Local machine)
+  - vim /etc/shadowsocks.json
+  root@jjimhuang:~# cat shadowsocks.json
+  {
+    "server": "209.9.107.71",
+    "server_port": 8081,
+    "local_port": 8081,
+    "password": "helloworld"
+  }
+
+- Config shadowsocks on Server machine
+  {
+    "server_port": 8081,
+    "password": "helloworld"
+  }
+
+
+- AUTO on MAC os: add shadowsocks deamon service (Client)
+  $ sudo vim /Library/LaunchDaemons/com.shadowsocks.plist
+  > input following scripts:
+  	<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+	<plist version="1.0">
+	<dict>
+	    <key>Label</key>
+	    <string>com.shadowsocks.plist</string><!--这个名字必须和文件名一致-->
+	    <key>ProgramArguments</key>
+	    <array>
+		<string>/usr/local/bin/sslocal</string>
+		<string>-c</string>
+		<string>/etc/shadowsocks.json</string>
+		<string>start</string>
+	    </array>
+	    <key>KeepAlive</key><!--后台保持运行-->
+	    <false/>
+	    <key>RunAtLoad</key><!--加载时候运行-->
+	    <true/>
+	</dict>
+	</plist>
+   # 自动启动：
+   $ sudo launchctl load /Library/LaunchDaemons/com.shadowsocks.plist
+   # 取消自动启动：
+   $ sudo launchctl unload /Library/LaunchDaemons/com.shadowsocks.plist
+   # 立即启动：
+   $ sudo launchctl start com.shadowsocks.plist
+   # 立即停止：
+   $ sudo launchctl stop com.shadowsocks.plist
+   # 查看：
+   $ sudo launchctl list
+
+- AUTO on Ubuntu 16.04 (Client)
+  $ sudo vim /usr/lib/systemd/system/shadowsocks.service
+  > input following script
+    [Unit]
+    Description=Daemon to start shadowsocks server
+    Wants=network-online.target
+    After=network.target
+
+    [Service]
+    Type=simple
+    ExecStart=/usr/local/bin/sslocal -c /etc/shadowsocks.json -qq
+    User=nobody
+
+    [Install]
+    WantedBy=multi-user.target
+
+   # enable
+   sudo systemctl enable shadowsocks
+   # start
+   sudo systemctl start shadowsocks
+   # status
+   sudo systemctl status shadowsocks
+
+- AUTO on ubuntu 14.04
+  create /etc/shadowsocks/conf.json (same as above /etc/shadowsocks.json file)
+  $sudo vim /etc/shadowsocks/start.sh
+   > sudo /usr/local/bin/sslocal -c /etc/shadowsocks.json --user nobody -qq -d start
+  $sudo vim /etc/shadowsocks/stop.sh
+   > sudo /usr/local/bin/sslocal -c /etc/shadowsocks.json -d stop
+  Then put following in /etc/rc.local to start shadowsocks upon client/localmachine start:
+  # Star shadowsocks
+  /etc/shadowsocks/start.sh
+
+-  gfwlist subscription URL
+   search 'gfwlist' in github, Tab Code, click to open file 'gfwlist.txt', click 'Raw' to show the file URL.\
+   https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt
+
+
+#Firefox/Chrome Addon
+## Addon FoxyProxy
+- Install FoxyProxy (FireFox->Addo-ons)
+- FoxyProxy Preference
+	-Proxies -> Add New Proxy
+            Proxy Details
+		Sever or IP Address: 127.0.0.1  Port:8081
+                 *Socks proxy    *Socks v5
+        -Pattern Subscriptions
+		Subscription URL: Fill the subscription address, check step4
+		Add Proixes: add the proxy you added in 3.1
+		Refresh Rate: 702 minutes
+		Format: AutoProxy
+		Obfuscation: Base64
+         writ gfwlist URL
+
+
+
+## Firefox/Chrome Addon SwitchOmega
+  - New profile 'jim'
+    Scheme       Protocol      Server      Port
+    default	 SOCKS5        127.0.0.1   8081
+ 
+  - auto switch
+    Add a rule list
+    Switch rules;
+      select Profile "jim" for Condition Type "Rule list rules"
+
+    Rule List Config
+      Rule List Format   AutoProxy
+      Rule List URL      gfwlist URL
+      Click "Download Profile Now"
+
+
+#Chorme Addon install
+  - need to install when shadowsocks is open
+  - Using socks5 proxy with ssh tunnel to open chrome
+  (1) On Mac OS
+      # Open socks5 proxy to local port 1337
+      # This connects to remote host using ssh into port 2222
+      $ ssh -D 1337 -f -C -q -N user@remote -p 2222
+      here user@remote is root@209.9.107.71
+
+      # Symlink chrome binary to PATH
+      # ( This is optional ) 
+      $ln -s /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+	     /usr/local/bin/chrome
+
+      # Open chrome using the socks5 proxy in port 1337
+      $ chrome --proxy-server="socks5://127.0.0.1:1337" \
+	       --host-resolver-rules="MAP * 0.0.0.0 , EXCLUDE localhost"
+
+     或者参考http://lonf.me/2017/01/06/macOS-shadowsocks-Proxy-SwitchyOmega/
+
+  (2) On Ubuntu 16.04
+      $ ssh -D 1337 -f -C -q -N user@remote -p 2222
+     
+      $ google-chrome --proxy-server="socks5://127.0.0.1:1337" \
+	       --host-resolver-rules="MAP * 0.0.0.0 , EXCLUDE localhost"
+
+
+
+
+
