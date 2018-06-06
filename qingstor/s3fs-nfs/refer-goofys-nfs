@@ -1,0 +1,86 @@
+
+1. 安装nfs套件
+yum install -y nfs-utils
+2. 安装fuse
+yum install fuse
+
+3.编辑exports文件，添加从机
+vim /etc/exports
+
+4.注意防火墙放行端口
+
+4.创建crentianl文件
+路径：/root/.aws/credentials
+格式:
+[default]
+aws_access_key_id = XXXXXXXXXXXXXXXXXX
+aws_secret_access_key = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+4.挂载
+nohup ./goofys -f --debug_fuse --debug_s3　--no-implicit-dir -o allow_other --profile default --endpoint http://s3.pek3a.qingstor.com bucket-name /mnt/nas
+
+加　-f 在foreground运行方便查看错误
+
+--cheap ??
+
+5.启动nfs server服务
+注意启动顺序 先启动 rpcbind再nfs 服务
+[root@work111 ~]# systemctl start rpcbind.service  
+[root@work111 ~]# systemctl start nfs.service
+[root@work111 ~]# netstat -anutlp|grep 2049
+
+6.nfs client侧主机
+showmount -e ip ，来检测export信息
+挂载：
+mount -t nfs -o vers=3,proto=tcp,nolock
+
+7.测试与远程RPC通道
+NFS启动时会随机启动多个端口并向RPC注册，这样如果使用iptables对NFS端口进行限制就会有点麻烦，可以更改配置文件固定NFS服务相关端口。
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+1. portmap 端口 111 udp/tcp；
+2. nfsd 端口 2049 udp/tcp；
+3. mountd 端口 "xxx" udp/tcp
+系统 RPC服务在 nfs服务启动时默认会为 mountd动态选取一个随机端口（32768--65535）来进行通讯，我们可以通过编辑/etc/services 文件为 mountd指定一个固定端口：
+分配端口，编辑配置文件：
+[root@work111 ~]# vim /etc/sysconfig/nfs
+添加：
+RQUOTAD_PORT=30001
+LOCKD_TCPPORT=30002
+LOCKD_UDPPORT=30002
+MOUNTD_PORT=30003
+STATD_PORT=30004
+
+重启rpcbind和nfs：
+[root@work111 ~]# /usr/bin/systemctl restart rpcbind.service
+[root@work111 ~]# /usr/bin/systemctl restart nfs.service
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+其他参考：
+在设置了防火墙的环境中使用NFS，需要在防火墙上打开如下端口：
+Centos 7 防火墙设置 6379,52111,5601,2049,15015,67,111,15018,20048 端口到防火墙中
+
+
+[root@work111 ~]# firewall-cmd --permanent --zone=public --add-port=6379/tcp
+[root@work111 ~]# firewall-cmd --permanent --zone=public --add-port=52111/udp
+[root@work111 ~]# firewall-cmd --permanent --zone=public --add-port=5601/tcp
+[root@work111 ~]# firewall-cmd --permanent --zone=public --add-port=2049/tcp
+[root@work111 ~]# firewall-cmd --permanent --zone=public --add-port=2049/udp
+[root@work111 ~]# firewall-cmd --permanent --zone=public --add-port=15015/tcp
+[root@work111 ~]# firewall-cmd --permanent --zone=public --add-port=67/tcp
+[root@work111 ~]# firewall-cmd --permanent --zone=public --add-port=111/tcp
+[root@work111 ~]# firewall-cmd --permanent --zone=public --add-port=111/udp
+[root@work111 ~]# firewall-cmd --permanent --zone=public --add-port=8730/tcp
+[root@work111 ~]# firewall-cmd --permanent --zone=public --add-port=15018/tcp
+[root@work111 ~]# firewall-cmd --permanent --zone=public --add-port=20048/tcp
+[root@work111 ~]# firewall-cmd --permanent --zone=public --add-port=20048/udp
+[root@work111 ~]# firewall-cmd --reload #重新加载防火墙
+
+
+修改防火墙
+portmap:111   nfsd:2049   mountd: 1012  rpc.statd:32768
+1
+2
+3
+[root@hangzhouhdjd ~]# vim /etc/sysconfig/iptables
+-A INPUT -s 176.20.0.0/24 -p tcp -m multiport --dports 111,2049,1012,1013,32768 -j ACCEPT
+-A INPUT -s 176.20.0.0/24 -p udp -m multiport --dports 111,2019,1012,1013,32768 -j ACC
