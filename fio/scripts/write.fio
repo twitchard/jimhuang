@@ -1,9 +1,6 @@
 rw=write
-direct=1
-invalidate=1
-size=1G
 runtime=180
 group_reporting=1
-directory=/tmp/fiotestdata
-filename=fiotest.dat
+directory=/mnt/nas-gw
 end_fsync=1
+per_job_logs=0
