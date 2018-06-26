@@ -33,6 +33,7 @@ fio 的　server/client 模式，fio -S 进入 server 模式后会在 8765 tcp �
 fio -S # 开启 fio 进入 server 模式．fio: server listening on 0.0.0.0,8765
 gfio # 另起终端开启客户端 GUI 界面，选择某个 job 文件，连接上服务段发送任务，之后会显示运行图像结果
 
+
 ## fio2gnuplot visualize the output
 
 [fio2gnuplot to visualize the output][findelkind_fio2gnuplot]
