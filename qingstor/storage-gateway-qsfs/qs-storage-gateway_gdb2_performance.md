@@ -1,5 +1,5 @@
 # QS-Storage-Gateway 性能测试报告及分析
-<div style="width:50%; display: inline-block;text-align:left" >2018-06-20, 2018-06-21, 2018-06-22</div><div style="width:50%; display: inline-block;text-align:right">Jim Huang jimhuang@yunify.com
+<div style="width:50%; display: inline-block;text-align:left" >2018-06-21, 2018-06-22, 2018-06-23</div><div style="width:50%; display: inline-block;text-align:right">Jim Huang jimhuang@yunify.com
 </div>
 
 <br>
@@ -32,7 +32,7 @@
 <br>8.2 [qsfs](#qsfs)
 <br>8.3 [Iozone](#Iozone)
 <br>8.4 [fio](#fio)
-9. [附录](#Appendix)
+9. [附录](#附录)
 <br>9.1 [Scripts](#Scripts)
 <br>9.2 [NFS Troubleshooting](#NFS%20Troubleshooting)
 <br>9.3 [测试数据结果](#测试数据结果)
@@ -65,7 +65,7 @@ QS-Storage-Gateway 主要包括 qsfs-fuse 和 NFS 两部分: 通过 qsfs 将 Qin
 
 ### 对比测试结果
 
-对比测试对 NFS Client0 节点进行测试,测试结果如下, 测试命令见下节内容.
+对比测试对 NFS Client0 节点, 进行 64MB 文件大小的读写测试,测试结果如下, 测试命令见下节内容.
 
 单位: Mbytes/s
 |        |  Write  |  Read  |
@@ -654,7 +654,7 @@ make && make install
 
 <div style="page-break-after:always;"></div>
 
-## Appendix
+## 附录
 
 ### Scripts
 
