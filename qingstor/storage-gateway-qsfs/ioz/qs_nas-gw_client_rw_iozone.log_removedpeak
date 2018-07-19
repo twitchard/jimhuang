@@ -20,9 +20,9 @@
 	Include fsync in write timing
 	No retest option selected
 	Command line used: iozone -Race -i 0 -i 1 -+n -U /mnt/nas-gw -f /mnt/nas-gw/nas-gw_client_test.ioz -b ./qs_nas-gw_client_rw_iozone.xls
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
                                                             random  random    bkwd   record   stride                                   

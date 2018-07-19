@@ -65,10 +65,9 @@ NAME       SIZELIMIT OFFSET AUTOCLEAR RO BACK-FILE
 /dev/loop1 is occupied by snap.
 so change qfs-io/qfs-fuse/qfs-master dev to /dev/loop4
 
-- 12. 
-
-
 ### qfs-master
+
+12. commit vendor.json, change lz4 entry as same as qfs-io.
 
 gateway0
 cd ~/gopath/src/qfs-master/conf/goreman_conf
@@ -79,3 +78,20 @@ goreman start
 [resolve_no_submodule_mapping]:https://stackoverflow.com/questions/4185365/no-submodule-mapping-found-in-gitmodule-for-a-path-thats-not-a-submodule
 [install_docker_ubuntu16]:https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04
 [install_docker_compose]:https://docs.docker.com/compose/install/
+
+
+
+### debug qfs-fuse, qfs-io
+see dir debug/vscode for vscode config
+
+1. mount loop device: cd qfs-io; make test-start
+
+2. qfs-tool -d /dev/loop4 mkfs
+
+3. ./build/qfs_meta -conf conf/qfs_meta.yaml
+
+4. ./build/qfs_fuse -conf conf/qfs_fuse.yaml
+
+5. start ganesha.nfsd
+
+6. mount exported dir

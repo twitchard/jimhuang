@@ -122,7 +122,7 @@ iozone -ceC -i 0 -i 1 -r 4 -s 64 -t 2 -+m cluster_2node.conf
 > Notes
 > option `-w` can be used to "Do not unlink temporary files when finished using them. Leave them present in the filesystem"
 > 
-> As iozone thoughput mode for cluster testing is not able to support Unmount/Mount nfs clients, so when use `-w` option, cluster performance test shows there is extrordinary write performance (nearly 180 MBytes/s) for cluster, this maybe not reasonable, as qsfs(storage-gateway) probably cache the testfile, so following test io just hit the memory cache, so do not use `-w` to make the test file unlinked when finished test this will invoke qsfs to delete the testfile from cache.
+> As iozone thoughput mode for cluster testing is not able to support Unmount/Mount nfs clients, so when use `-w` option, cluster performance test shows there is extrordinary write performance (nearly 180 MB/s) for cluster, this maybe not reasonable, as qsfs(storage-gateway) probably cache the testfile, so following test io just hit the memory cache, so do not use `-w` to make the test file unlinked when finished test this will invoke qsfs to delete the testfile from cache.
 
 
 ### scripts to generate nfs cluster iozone jobs

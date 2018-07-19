@@ -20,9 +20,9 @@
 	File size set to 64 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 4 -s 64 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -90,9 +90,9 @@ iozone test complete.
 	File size set to 128 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 4 -s 128 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -160,9 +160,9 @@ iozone test complete.
 	File size set to 256 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 4 -s 256 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -230,9 +230,9 @@ iozone test complete.
 	File size set to 512 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 4 -s 512 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -300,9 +300,9 @@ iozone test complete.
 	File size set to 1024 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 4 -s 1024 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -370,9 +370,9 @@ iozone test complete.
 	File size set to 2048 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 4 -s 2048 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -440,9 +440,9 @@ iozone test complete.
 	File size set to 4096 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 4 -s 4096 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -510,9 +510,9 @@ iozone test complete.
 	File size set to 8192 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 4 -s 8192 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -580,9 +580,9 @@ iozone test complete.
 	File size set to 16384 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 4 -s 16384 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -650,9 +650,9 @@ iozone test complete.
 	File size set to 64 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 8 -s 64 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -720,9 +720,9 @@ iozone test complete.
 	File size set to 128 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 8 -s 128 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -790,9 +790,9 @@ iozone test complete.
 	File size set to 256 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 8 -s 256 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -860,9 +860,9 @@ iozone test complete.
 	File size set to 512 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 8 -s 512 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -930,9 +930,9 @@ iozone test complete.
 	File size set to 1024 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 8 -s 1024 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -1000,9 +1000,9 @@ iozone test complete.
 	File size set to 2048 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 8 -s 2048 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -1070,9 +1070,9 @@ iozone test complete.
 	File size set to 4096 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 8 -s 4096 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -1140,9 +1140,9 @@ iozone test complete.
 	File size set to 8192 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 8 -s 8192 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -1210,9 +1210,9 @@ iozone test complete.
 	File size set to 16384 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 8 -s 16384 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -1280,9 +1280,9 @@ iozone test complete.
 	File size set to 64 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 16 -s 64 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -1350,9 +1350,9 @@ iozone test complete.
 	File size set to 128 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 16 -s 128 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -1420,9 +1420,9 @@ iozone test complete.
 	File size set to 256 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 16 -s 256 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -1490,9 +1490,9 @@ iozone test complete.
 	File size set to 512 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 16 -s 512 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -1560,9 +1560,9 @@ iozone test complete.
 	File size set to 1024 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 16 -s 1024 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -1630,9 +1630,9 @@ iozone test complete.
 	File size set to 2048 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 16 -s 2048 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -1700,9 +1700,9 @@ iozone test complete.
 	File size set to 4096 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 16 -s 4096 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -1770,9 +1770,9 @@ iozone test complete.
 	File size set to 8192 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 16 -s 8192 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -1840,9 +1840,9 @@ iozone test complete.
 	File size set to 16384 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 16 -s 16384 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -1910,9 +1910,9 @@ iozone test complete.
 	File size set to 64 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 32 -s 64 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -1980,9 +1980,9 @@ iozone test complete.
 	File size set to 128 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 32 -s 128 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -2050,9 +2050,9 @@ iozone test complete.
 	File size set to 256 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 32 -s 256 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -2120,9 +2120,9 @@ iozone test complete.
 	File size set to 512 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 32 -s 512 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -2190,9 +2190,9 @@ iozone test complete.
 	File size set to 1024 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 32 -s 1024 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -2260,9 +2260,9 @@ iozone test complete.
 	File size set to 2048 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 32 -s 2048 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -2330,9 +2330,9 @@ iozone test complete.
 	File size set to 4096 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 32 -s 4096 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -2400,9 +2400,9 @@ iozone test complete.
 	File size set to 8192 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 32 -s 8192 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -2470,9 +2470,9 @@ iozone test complete.
 	File size set to 16384 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 32 -s 16384 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -2540,9 +2540,9 @@ iozone test complete.
 	File size set to 64 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 64 -s 64 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -2610,9 +2610,9 @@ iozone test complete.
 	File size set to 128 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 64 -s 128 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -2680,9 +2680,9 @@ iozone test complete.
 	File size set to 256 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 64 -s 256 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -2750,9 +2750,9 @@ iozone test complete.
 	File size set to 512 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 64 -s 512 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -2820,9 +2820,9 @@ iozone test complete.
 	File size set to 1024 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 64 -s 1024 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -2890,9 +2890,9 @@ iozone test complete.
 	File size set to 2048 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 64 -s 2048 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -2960,9 +2960,9 @@ iozone test complete.
 	File size set to 4096 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 64 -s 4096 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -3030,9 +3030,9 @@ iozone test complete.
 	File size set to 8192 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 64 -s 8192 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -3100,9 +3100,9 @@ iozone test complete.
 	File size set to 16384 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 64 -s 16384 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -3170,9 +3170,9 @@ iozone test complete.
 	File size set to 32768 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 64 -s 32768 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -3240,9 +3240,9 @@ iozone test complete.
 	File size set to 65536 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 64 -s 65536 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -3310,9 +3310,9 @@ iozone test complete.
 	File size set to 128 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 128 -s 128 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -3380,9 +3380,9 @@ iozone test complete.
 	File size set to 256 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 128 -s 256 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -3450,9 +3450,9 @@ iozone test complete.
 	File size set to 512 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 128 -s 512 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -3520,9 +3520,9 @@ iozone test complete.
 	File size set to 1024 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 128 -s 1024 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -3590,9 +3590,9 @@ iozone test complete.
 	File size set to 2048 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 128 -s 2048 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -3660,9 +3660,9 @@ iozone test complete.
 	File size set to 4096 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 128 -s 4096 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -3730,9 +3730,9 @@ iozone test complete.
 	File size set to 8192 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 128 -s 8192 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -3800,9 +3800,9 @@ iozone test complete.
 	File size set to 16384 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 128 -s 16384 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -3870,9 +3870,9 @@ iozone test complete.
 	File size set to 32768 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 128 -s 32768 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -3940,9 +3940,9 @@ iozone test complete.
 	File size set to 65536 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 128 -s 65536 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -4010,9 +4010,9 @@ iozone test complete.
 	File size set to 256 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 256 -s 256 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -4080,9 +4080,9 @@ iozone test complete.
 	File size set to 512 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 256 -s 512 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -4150,9 +4150,9 @@ iozone test complete.
 	File size set to 1024 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 256 -s 1024 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -4220,9 +4220,9 @@ iozone test complete.
 	File size set to 2048 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 256 -s 2048 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -4290,9 +4290,9 @@ iozone test complete.
 	File size set to 4096 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 256 -s 4096 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -4360,9 +4360,9 @@ iozone test complete.
 	File size set to 8192 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 256 -s 8192 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -4430,9 +4430,9 @@ iozone test complete.
 	File size set to 16384 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 256 -s 16384 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -4500,9 +4500,9 @@ iozone test complete.
 	File size set to 32768 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 256 -s 32768 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -4570,9 +4570,9 @@ iozone test complete.
 	File size set to 65536 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 256 -s 65536 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -4640,9 +4640,9 @@ iozone test complete.
 	File size set to 512 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 512 -s 512 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -4710,9 +4710,9 @@ iozone test complete.
 	File size set to 1024 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 512 -s 1024 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -4780,9 +4780,9 @@ iozone test complete.
 	File size set to 2048 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 512 -s 2048 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -4850,9 +4850,9 @@ iozone test complete.
 	File size set to 4096 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 512 -s 4096 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -4920,9 +4920,9 @@ iozone test complete.
 	File size set to 8192 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 512 -s 8192 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -4990,9 +4990,9 @@ iozone test complete.
 	File size set to 16384 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 512 -s 16384 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -5060,9 +5060,9 @@ iozone test complete.
 	File size set to 32768 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 512 -s 32768 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -5130,9 +5130,9 @@ iozone test complete.
 	File size set to 65536 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 512 -s 65536 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -5200,9 +5200,9 @@ iozone test complete.
 	File size set to 1024 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 1024 -s 1024 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -5270,9 +5270,9 @@ iozone test complete.
 	File size set to 2048 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 1024 -s 2048 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -5340,9 +5340,9 @@ iozone test complete.
 	File size set to 4096 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 1024 -s 4096 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -5410,9 +5410,9 @@ iozone test complete.
 	File size set to 8192 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 1024 -s 8192 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -5480,9 +5480,9 @@ iozone test complete.
 	File size set to 16384 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 1024 -s 16384 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -5550,9 +5550,9 @@ iozone test complete.
 	File size set to 32768 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 1024 -s 32768 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -5620,9 +5620,9 @@ iozone test complete.
 	File size set to 65536 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 1024 -s 65536 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -5690,9 +5690,9 @@ iozone test complete.
 	File size set to 2048 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 2048 -s 2048 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -5760,9 +5760,9 @@ iozone test complete.
 	File size set to 4096 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 2048 -s 4096 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -5830,9 +5830,9 @@ iozone test complete.
 	File size set to 8192 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 2048 -s 8192 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -5900,9 +5900,9 @@ iozone test complete.
 	File size set to 16384 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 2048 -s 16384 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -5970,9 +5970,9 @@ iozone test complete.
 	File size set to 32768 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 2048 -s 32768 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -6040,9 +6040,9 @@ iozone test complete.
 	File size set to 65536 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 2048 -s 65536 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -6110,9 +6110,9 @@ iozone test complete.
 	File size set to 4096 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 4096 -s 4096 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -6180,9 +6180,9 @@ iozone test complete.
 	File size set to 8192 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 4096 -s 8192 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -6250,9 +6250,9 @@ iozone test complete.
 	File size set to 16384 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 4096 -s 16384 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -6320,9 +6320,9 @@ iozone test complete.
 	File size set to 32768 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 4096 -s 32768 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -6390,9 +6390,9 @@ iozone test complete.
 	File size set to 65536 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 4096 -s 65536 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -6460,9 +6460,9 @@ iozone test complete.
 	File size set to 8192 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 8192 -s 8192 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -6530,9 +6530,9 @@ iozone test complete.
 	File size set to 16384 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 8192 -s 16384 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -6600,9 +6600,9 @@ iozone test complete.
 	File size set to 32768 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 8192 -s 32768 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -6670,9 +6670,9 @@ iozone test complete.
 	File size set to 65536 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 8192 -s 65536 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -6740,9 +6740,9 @@ iozone test complete.
 	File size set to 16384 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 16384 -s 16384 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -6810,9 +6810,9 @@ iozone test complete.
 	File size set to 32768 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 16384 -s 32768 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -6880,9 +6880,9 @@ iozone test complete.
 	File size set to 65536 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 16384 -s 65536 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -6950,9 +6950,9 @@ iozone test complete.
 	File size set to 131072 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 16384 -s 131072 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -7020,9 +7020,9 @@ iozone test complete.
 	File size set to 131072 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 8192 -s 131072 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -7090,9 +7090,9 @@ iozone test complete.
 	File size set to 131072 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 4096 -s 131072 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -7160,9 +7160,9 @@ iozone test complete.
 	File size set to 131072 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 2048 -s 131072 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -7230,9 +7230,9 @@ iozone test complete.
 	File size set to 131072 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 1024 -s 131072 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -7300,9 +7300,9 @@ iozone test complete.
 	File size set to 131072 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 512 -s 131072 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -7370,9 +7370,9 @@ iozone test complete.
 	File size set to 262144 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 16384 -s 262144 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -7440,9 +7440,9 @@ iozone test complete.
 	File size set to 262144 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 8192 -s 262144 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -7510,9 +7510,9 @@ iozone test complete.
 	File size set to 262144 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 4096 -s 262144 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -7580,9 +7580,9 @@ iozone test complete.
 	File size set to 262144 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 2048 -s 262144 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -7650,9 +7650,9 @@ iozone test complete.
 	File size set to 262144 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 1024 -s 262144 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -7720,9 +7720,9 @@ iozone test complete.
 	File size set to 262144 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 512 -s 262144 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -7790,9 +7790,9 @@ iozone test complete.
 	File size set to 524288 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 16384 -s 524288 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -7860,9 +7860,9 @@ iozone test complete.
 	File size set to 524288 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 8192 -s 524288 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -7930,9 +7930,9 @@ iozone test complete.
 	File size set to 524288 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 4096 -s 524288 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -8000,9 +8000,9 @@ iozone test complete.
 	File size set to 524288 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 2048 -s 524288 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -8070,9 +8070,9 @@ iozone test complete.
 	File size set to 524288 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 1024 -s 524288 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -8140,9 +8140,9 @@ iozone test complete.
 	File size set to 524288 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 512 -s 524288 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -8210,9 +8210,9 @@ iozone test complete.
 	File size set to 131072 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 64 -s 131072 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -8280,9 +8280,9 @@ iozone test complete.
 	File size set to 262144 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 64 -s 262144 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -8350,9 +8350,9 @@ iozone test complete.
 	File size set to 524288 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 64 -s 524288 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -8420,9 +8420,9 @@ iozone test complete.
 	File size set to 131072 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 128 -s 131072 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -8490,9 +8490,9 @@ iozone test complete.
 	File size set to 262144 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 128 -s 262144 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -8560,9 +8560,9 @@ iozone test complete.
 	File size set to 524288 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 128 -s 524288 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -8630,9 +8630,9 @@ iozone test complete.
 	File size set to 131072 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 256 -s 131072 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -8700,9 +8700,9 @@ iozone test complete.
 	File size set to 262144 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 256 -s 262144 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
@@ -8770,9 +8770,9 @@ iozone test complete.
 	File size set to 524288 kB
 	Network distribution mode enabled.
 	Command line used: iozone -ceC -i 0 -i 1 -r 256 -s 524288 -t 2 -+m cluster_2node.conf
-	Output is in kBytes/sec
+	Output is in KB/sec
 	Time Resolution = 0.000001 seconds.
-	Processor cache size set to 1024 kBytes.
+	Processor cache size set to 1024 KB.
 	Processor cache line size set to 32 bytes.
 	File stride size set to 17 * record size.
 	Throughput test with 2 processes
