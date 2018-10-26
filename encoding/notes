@@ -1,0 +1,12 @@
+## Tools
+
+- enca  # Tool to Detect encoding of text files content and convert them if required.
+- convmv  # Tool to converts filenames from one encoding to another
+
+## usage
+
+enca -L zh_CN 中文文件名  # detect encoding of text files
+enca -L zh_CN -x utf8 filename  # convert filename to utf8
+
+convmv --list  # list all supported econding
+convmv -f utf8 -t gb2312 --notest 中文文件名  # convert filename from utf8 to gb2312

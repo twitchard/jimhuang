@@ -95,3 +95,59 @@ see dir debug/vscode for vscode config
 5. start ganesha.nfsd
 
 6. mount exported dir
+
+
+### test fsal_qfs
+
+1. service nfs-kernel-service stop
+
+2. setup loop device
+   qfs_io/make test-start
+   qfs_tools -d /dev/loop4 mkfs
+
+3. launch docker/db
+   qfs_meta/make test-start
+
+   when meet mysql timeout error, try 'bash script/test_setup.sh' manually, if still not work, try to stop/start docker container 'qfs_meta_galera_meta-0_1'
+```
+        docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                                    NAMES
+cb149828bbc7        galera_meta         "/bin/sh -c 'bash /q…"   4 days ago          Up About a minute   4444/tcp, 4567-4568/tcp, 127.0.0.1:3706->3306/tcp        qfs_meta_galera_meta-0_1
+
+docker stop cb149828bbc7
+docker start cb149828bbc
+docker exec -it cb149828bbc bash
+```
+
+4. launch qfs-meta
+    ./build/qfs-meta conf ./conf/qfs_meta.yaml
+
+5. Setup env using qfs_fuse
+   ./build/qfs-fuse conf ./conf/qfs_fuse.yaml
+   cd mount_point && mkdir jim  # the root dir of export
+
+6. conf ganesh.conf
+  path = /jim
+  Pseduo = /
+
+7. mount -t nfs localhost:/ /qingstor/mnt
+
+8. cleanup meta db
+   bash  script/test_cleandb.sh
+   bash script/test_setup.sh
+
+9. mysql 
+docker ps
+mysql -u yunify -P 3706 -p -h 127.0.0.1
+show databases
+use <DATABASE>
+show tables
+select * from qfs_meta_2.inode_parent;
+
+10. remove image 'galera_meta' (restart docker) 
+docker stop qfs_meta_galera_meta-0_1
+docker rm qfs_meta_galera_meta-0_1
+docker images
+docker rmi galera_meta
+
+qfs-meta: make test-start
