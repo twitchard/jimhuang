@@ -49,6 +49,14 @@ Plugin 'Valloric/YouCompleteMe'         " see https://github.com/Valloric/YouCom
 Plugin 'Rip-Rip/clang_complete'
 
 Plugin 'majutsushi/tagbar'
+" Plugin vim_scripts/cscope.vim is installed by PluginSearch->i
+
+Plugin 'skywind3000/asyncrun.vim'       " For Vim8.0
+
+Plugin 'mh21/errormarker.vim'
+
+" Not work well with YCM, so unistall for now
+Plugin 'w0rp/ale'                       " Asynchronouse linting/fixing
 
 call vundle#end()            " required
 " To ignore plugin indent changes, instead use:
@@ -103,6 +111,8 @@ set secure                      " Restrict usage of some commands in non-default
 
 set colorcolumn=100             " highlight column number 100 with color
 highlight ColorColumn ctermbg=darkgray
+
+set timeoutlen=500              " set timoutlen for mappling delay in millseconds (default 1000)
 
 "set tags=./.tags;,.tags
 
@@ -163,6 +173,8 @@ nnoremap Y y$
 
 " Enter automatically into the files directory
 autocmd BufEnter * silent! lcd %:p:h
+" Switch CWD to the directory of the open buffer
+" map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -172,6 +184,36 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+" In Normal mode, you can type 
+" gt      go to next tab
+" gT      go to previous tab
+" {i} gt  go to tab in pos i
+" Managing tabs
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove 
+" Opens a new tab with the current buffer's path
+" Usefult when editing files in the same directory
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+
+
+
+" Go to tag
+" An work around when go_to_definiton_use_g not working
+" comment it, use g] instead
+" nnoremap <leader>t :tag <c-r><c-w><cr>
+"
+" Go to definition using g
+" gd      local def
+" dD      global def
+" g*      search for word under cursor
+" g#      same as g* in backward
+" gg      goto first line in buffer
+" G
+" gf      goto file
+" g]      jump to a tag def
 
 
 """"""""""""""""""""""""""""""
@@ -183,6 +225,7 @@ map <C-l> <C-W>l
 map <leader>nn :NERDTreeToggle<cr>
 map <leader>n <plug>NERDTreeTabsToggle<CR>
 " run NERDTreeTabs on console vim startup
+
 "let g:nerdtree_tabs_open_on_console_startup=1
 " nerdtree-git-plugin symbols
 let g:NERDTreeIndicatorMapCustom = {
@@ -197,6 +240,7 @@ let g:NERDTreeIndicatorMapCustom = {
     \ 'Ignored'   : '☒',
     \ "Unknown"   : "?"
     \ }
+
 
 "
 " vim-go
@@ -235,47 +279,47 @@ augroup go
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
   " :GoBuild and :GoTestCompile
-  autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>bb :<C-u>call <SID>build_go_files()<CR>
 
-  " :GoTest
-  autocmd FileType go nmap <leader>t  <Plug>(go-test)
+" :GoTest
+autocmd FileType go nmap <leader>tt  <Plug>(go-test)
 
-  " :GoRun
-  autocmd FileType go nmap <leader>r  <Plug>(go-run)
+" :GoRun
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
 
-  " :GoDoc
-  autocmd FileType go nmap <leader>d <Plug>(go-doc)
+" :GoDoc
+autocmd FileType go nmap <leader>d <Plug>(go-doc)
 
-  " :GoCoverageToggle
-  autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
+" :GoCoverageToggle
+autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
 
-  " :GoInfo
-  autocmd FileType go nmap <leader>i <Plug>(go-info)
+" :GoInfo
+autocmd FileType go nmap <leader>i <Plug>(go-info)
 
-  " :GoMetaLinter
-  autocmd FileType go nmap <leader>l <Plug>(go-metalinter)
+" :GoMetaLinter
+autocmd FileType go nmap <leader>l <Plug>(go-metalinter)
 
-  " :GoDef but opens in a vertical split
-  autocmd FileType go nmap <leader>v <Plug>(go-def-vertical)
-  " :GoDef but opens in a horizontal split
-  autocmd FileType go nmap <leader>s <Plug>(go-def-split)
+" :GoDef but opens in a vertical split
+autocmd FileType go nmap <leader>v <Plug>(go-def-vertical)
+" :GoDef but opens in a horizontal split
+autocmd FileType go nmap <leader>s <Plug>(go-def-split)
 
-  " :GoAlternate  commands :A, :AV, :AS and :AT
-  autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-  autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-  autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-  autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+" :GoAlternate  commands :A, :AV, :AS and :AT
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 augroup END
 
 " build_go_files is a custom function that builds or compiles the test file.
 " It calls :GoBuild if its a Go file, or :GoTestCompile if it's a test file
 function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#test#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
+let l:file = expand('%')
+if l:file =~# '^\f\+_test\.go$'
+call go#test#Test(0, 1)
+elseif l:file =~# '^\f\+\.go$'
+call go#cmd#Build(0)
+endif
 endfunction
 
 
@@ -291,8 +335,8 @@ let g:airline_solarized_bg='dark'
 " c
 "
 augroup c
-	autocmd!
-	autocmd BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
+autocmd!
+autocmd BufRead,BufNewFile *.h,*.c set filetype=c
 augroup END
 
 
@@ -318,6 +362,16 @@ let g:ycm_key_list_previous_completion=[]
 
 
 "
+" YouCompleteMe (YCM)
+"
+" https://jonasdevlieghere.com/a-better-youcompleteme-config1
+" comment this as this not work well with ale,  ale cannot toggle off
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
+nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>
+
+
+"
 " clang_complete
 "
 let g:clang_library_path='/usr/local/lib/libclang.so.7'
@@ -328,3 +382,141 @@ let g:clang_library_path='/usr/local/lib/libclang.so.7'
 "
 nnoremap <silent> <leader>b :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
+
+"auto FileType * nested :call tagbar#autoopen(0)
+"auto BufEnter * nested :call tagbar#autoopen(0)
+"autocmd Filetype c,cpp,go,py nested :TagbarOpen
+
+
+"
+" asyncrun
+"
+let g:asyncrun_open = 8  " Open quickfix automatically at 8 lines height after command starts
+command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>  "Cooperate with vim-fugitive
+let g:asyncrun_auto = "make"     "Cooperte with errormarker
+let g:asyncrun_status = ''
+let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
+nnoremap <F10> :call asyncrun#quickfix_toggle(8)<cr>   " F10 to toggle quickfix window
+
+"
+" errormarker
+"
+let &errorformat="%f:%l:%c: %t%*[^:]:%m,%f:%l: %t%*[^:]:%m," . &errorformat  " Distinguish between warning and errors for gcc
+
+
+"
+" ale
+"
+map <leader>al :ALEToggle<cr>
+let g:ale_enabled = 0
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_filetype_changed = 0
+let g:ale_lint_on_save = 0
+let g:ale_set_highlights = 0
+
+
+"
+" cscope
+"
+if has("cscope")
+
+    """"""""""""" Standard cscope/vim boilerplate
+    "
+    " NOTE invoke /usr/local/bin/gentags at beginning
+    "
+    
+    "set csprg=/usr/bin/cscope                                                     
+
+    " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
+    set cscopetag
+
+    " set cscoperrelative
+    "set csre
+
+    " check cscope for definition of a symbol before checking ctags: set to 1
+    " if you want the reverse search order.
+    set csto=0
+
+    set nocsverb
+    " add any cscope database in current directory
+    if filereadable("cscope.out")
+        cs add $PWD/cscope.out $PWD
+    " else add the database pointed to by environment variable 
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+
+    " show msg when any other cscope db added
+    set csverb
+
+
+    """"""""""""" My cscope/vim key mappings
+    "
+    " The following maps all invoke one of the following cscope search types:
+    "
+    "   's'   symbol: find all references to the token under cursor
+    "   'g'   global: find global definition(s) of the token under cursor
+    "   'c'   calls:  find all calls to the function name under cursor
+    "   't'   text:   find all instances of the text under cursor
+    "   'e'   egrep:  egrep search for the word under cursor
+    "   'f'   file:   open the filename under cursor
+    "   'i'   includes: find files that include the filename under cursor
+    "   'd'   called: find functions that function under cursor calls
+    "
+    " Below are three sets of the maps: one set that just jumps to your
+    " search result
+    "
+    " All of the maps involving the <cfile> macro use '^<cfile>$': this is so
+    " that searches over '#include <time.h>" return only references to
+    " 'time.h', and not 'sys/time.h', etc. (by default cscope will return all
+    " files that contain 'time.h' as part of their name).
+
+
+    " To do the first type of search, hit '<leader>c', followed by one of the
+    " cscope search types above (s,g,c,t,e,f,i,d).  The result of your cscope
+    " search will be displayed in the current window.  You can use CTRL-T to
+    " go back to where you were before the search.  
+    "
+
+    nmap <leader>ss :cs find s <C-R>=expand("<cword>")<CR><CR>	
+    nmap <leader>sg :cs find g <C-R>=expand("<cword>")<CR><CR>	
+    nmap <leader>sc :cs find c <C-R>=expand("<cword>")<CR><CR>	
+    nmap <leader>st :cs find t <C-R>=expand("<cword>")<CR><CR>	
+    nmap <leader>se :cs find e <C-R>=expand("<cword>")<CR><CR>	
+    nmap <leader>sf :cs find f <C-R>=expand("<cfile>")<CR><CR>	
+    nmap <leader>si :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    nmap <leader>sd :cs find d <C-R>=expand("<cword>")<CR><CR>	
+
+
+    """"""""""""" key map timeouts
+    "
+    " By default Vim will only wait 1 second for each keystroke in a mapping.
+    " You may find that too short with the above typemaps.  If so, you should
+    " either turn off mapping timeouts via 'notimeout'.
+    "
+    "set notimeout 
+    "
+    " Or, you can keep timeouts, by uncommenting the timeoutlen line below,
+    " with your own personal favorite value (in milliseconds):
+    "
+    "set timeoutlen=4000
+    "
+    " Either way, since mapping timeout settings by default also set the
+    " timeouts for multicharacter 'keys codes' (like <F1>), you should also
+    " set ttimeout and ttimeoutlen: otherwise, you will experience strange
+    " delays as vim waits for a keystroke after you hit ESC (it will be
+    " waiting to see if the ESC is actually part of a key code like <F1>).
+    "
+    "set ttimeout 
+    "
+    " personally, I find a tenth of a second to work well for key code
+    " timeouts. If you experience problems and have a slow terminal or network
+    " connection, set it higher.  If you don't set ttimeoutlen, the value for
+    " timeoutlent (default: 1000 = 1 second, which is sluggish) is used.
+    "
+    "set ttimeoutlen=100
+
+endif
+
+

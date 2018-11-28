@@ -1,4 +1,6 @@
 #!/bin/sh
+#  add git cscope alias
+#  git config --global alias.ctags '!.git/hooks/ctags'
 set -e
 PATH="/usr/local/bin:$PATH"
 dir="`git rev-parse --git-dir`"

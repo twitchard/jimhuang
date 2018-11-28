@@ -1,0 +1,19 @@
+#!/bin/bash
+#  add git cscope alias and run git cscope under git root
+#  git config --global alias.cscope '!.git/hooks/cscope'
+set -e
+PATH="/usr/local/bin:$PATH"
+dir="`git rev-parse --git-dir`"
+CSCOPE_DIR="$dir/cscope"
+
+if [ ! -d "$CSCOPE_DIR" ]; then
+  mkdir "$CSCOPE_DIR"
+else
+  trap 'rm -f "CSCOPE_DIR/*"' EXIT
+fi
+
+find . | egrep '.*\.(c(pp)?|h(pp)?|java)$' > "$CSCOPE_DIR/cscope.files"
+ 
+cscope -b -i "$CSCOPE_DIR/cscope.files"
+ 
+export CSCOPE_DB="$PWD/cscope.out"
