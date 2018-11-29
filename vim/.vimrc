@@ -55,8 +55,9 @@ Plugin 'skywind3000/asyncrun.vim'       " For Vim8.0
 
 Plugin 'mh21/errormarker.vim'
 
-" Not work well with YCM, so unistall for now
 Plugin 'w0rp/ale'                       " Asynchronouse linting/fixing
+
+Plugin 'vim-scripts/a.vim'              " Alternate Files quickly (.c --> .h)
 
 call vundle#end()            " required
 " To ignore plugin indent changes, instead use:
@@ -142,6 +143,9 @@ colorscheme molokai
 " By default Vim searches file in working directory. However, most projects
 " However, most projects have sepearted directory for include files.
 let &path.="src/include,/usr/include/AL,"
+" search downward (relative to present working directory) for the file you are
+" looking for
+set path+=**
 
 """"""""""""""""""""""
 "      Mappings      "
@@ -173,8 +177,9 @@ nnoremap Y y$
 
 " Enter automatically into the files directory
 autocmd BufEnter * silent! lcd %:p:h
+
 " Switch CWD to the directory of the open buffer
-" map <leader>cd :cd %:p:h<cr>:pwd<cr>
+map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Fast saving
 nmap <leader>w :w!<cr>
