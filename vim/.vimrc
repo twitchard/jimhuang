@@ -157,13 +157,17 @@ if has('persistent_undo')
 endif
 
 
+"""""""""""""""""""""
 " Colorscheme
+"""""""""""""""""""""
 syntax enable
 :set t_Co=256
 let g:rehash256 = 1
 colorscheme molokai
 
+"""""""""""""""""""""""
 " Setting path variable
+"""""""""""""""""""""""
 " Vim has gf commnd which open file whose name is under or after cusor.
 " By default Vim searches file in working directory. However, most projects
 " However, most projects have sepearted directory for include files.
@@ -215,10 +219,6 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" In Normal mode, you can type 
-" gt      go to next tab
-" gT      go to previous tab
-" {i} gt  go to tab in pos i
 " Managing tabs
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
@@ -228,9 +228,13 @@ map <leader>tm :tabmove
 " Usefult when editing files in the same directory
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
-" Show invisible
-" Shortcut to rapidly toggle `set list`
+" Shortcut to rapidly toggle `set list`, will show invisible
 nmap <leader>l :set list!<CR>
+
+
+""""""""""""""""
+" Show invisible
+""""""""""""""""
 " Use the same symbols as TextMate for tabstops and EOLs
 "set listchars=space:.,tab:▸\ ,eol:¬
 set listchars=space:·,tab:▸\ 
@@ -238,7 +242,11 @@ set listchars=space:·,tab:▸\
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
+""""""""""""""""
+" Vim command in normal mode
+""""""""""""""""
 " Go to tag
+"
 " An work around when go_to_definiton_use_g not working
 " comment it, use g] instead
 " nnoremap <leader>t :tag <c-r><c-w><cr>
@@ -252,6 +260,31 @@ highlight SpecialKey guifg=#4a4a59
 " G
 " gf      goto file
 " g]      jump to a tag def
+
+" Go to tab
+"
+" gt      go to next tab
+" gT      go to previous tab
+" {i} gt  go to tab in pos i
+
+""""""""""""""""""""""""""""""
+" Commands
+"""""""""""""""""""""""""""""
+"visually select the code the type :SuperRetab 4
+:command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
+
+" Convert all leading spaces to tabs (default range is whole file):
+" These commands use the current 'tabstop' (abbreviated as 'ts') option.
+" :Space2Tab
+" Convert lines 11 to 15 only (inclusive):
+" :11,15Space2Tab
+" Convert last visually-selected lines:
+" :'<,'>Space2Tab
+" Same, converting leading tabs to spaces:
+" :'<,'>Tab2Space
+:command! -range=% -nargs=0 Tab2Space execute '<line1>,<line2>s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')'
+:command! -range=% -nargs=0 Space2Tab execute '<line1>,<line2>s#^\( \{'.&ts.'\}\)\+#\=repeat("\t", len(submatch(0))/' . &ts . ')'
+
 
 
 """"""""""""""""""""""""""""""
