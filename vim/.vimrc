@@ -228,7 +228,15 @@ map <leader>tm :tabmove
 " Usefult when editing files in the same directory
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
-
+" Show invisible
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+" Use the same symbols as TextMate for tabstops and EOLs
+"set listchars=space:.,tab:▸\ ,eol:¬
+set listchars=space:·,tab:▸\ 
+"Invisible character colors 
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
 
 " Go to tag
 " An work around when go_to_definiton_use_g not working
@@ -327,7 +335,7 @@ autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <leader>i <Plug>(go-info)
 
 " :GoMetaLinter
-autocmd FileType go nmap <leader>l <Plug>(go-metalinter)
+autocmd FileType go nmap <leader>ll <Plug>(go-metalinter)
 
 " :GoDef but opens in a vertical split
 autocmd FileType go nmap <leader>v <Plug>(go-def-vertical)
@@ -607,4 +615,5 @@ endif
 " <leader>ih switches to file under cursor
 " <leader>is switches to the alternate file of file under cursor (e.g. on  <foo.h> switches to foo.cpp)
 " <leader>ihn cycles through matches
-"
+
+
