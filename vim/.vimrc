@@ -1,5 +1,33 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"  Dependencies
+"    ctags	github.com/universal-ctags/ctags
+"    gtags      github.com/jstemmer/gotags
+"    cscope     apt-git install cscope "vim plugin not installed by vundle, refer tutorial
+"    YouCompleteMe  github.com/Valloric/YouCompleteMe
+"    editorconfig-core-c  github.com/editorconfig/editorconfig-core-c
 "
+"  Good References
+"    1) Vim/Cscope tutorial  http://cscope.sourceforge.net/cscope_vim_tutorial.html
+"    2) Effortless Ctags with Git	https://tbaggery.com/2011/08/08/effortless-ctags-with-git.html
+"    3) https://www.embeddedarm.com/blog/tag-jumping-in-a-codebase-using-ctags-and-cscope-in-vim/
+"    " After read above two links, you can do cscope-with-git
+"    4) Vim and ctas  https://andrew.stwrt.ca/posts/vim-ctags/
+"    5) vim-go tutorial  https://github.com/fatih/vim-go-tutorial#go-to-definition
+"    6) Using Vim as c/c++ IDE  http://www.alexeyshmalko.com/2014/using-vim-as-c-cpp-ide/
+"    7) http://www.alexeyshmalko.com/2014/youcompleteme-ultimate-autocomplete-plugin-for-vim/
+"    8) YCM installation    https://github.com/Valloric/YouCompleteMe#linux-64-bit
+"    9) some mapping refs  https://github.com/amix/vimrc#normal-mode-mappings
+"    10) EditorConfig  https://editorconfig.org/
+"
+"  Issues which are fixed
+"    vim-go quickfx windwo opening beneth TagBar  https://github.com/fatih/vim-go/issues/108
+"    Let path default value search downward CWD   https://github.com/neovim/neovim/issues/3209
+"    YCM and UltiSnips <Tab> conflict
+"
+"  Existing Issues
+"     YCM ValueError Still no compile flags  https://github.com/Valloric/YouCompleteMe/issues/700
+"     " currently when specify .ycm_extra_conf.py, ale cannot be toggle off/on
+"  
 "  <Shift+K>: put cusor on a symbol, jump to the symbol defs in vim doc
 "
 "
@@ -49,7 +77,6 @@ Plugin 'Valloric/YouCompleteMe'         " see https://github.com/Valloric/YouCom
 Plugin 'Rip-Rip/clang_complete'
 
 Plugin 'majutsushi/tagbar'
-" Plugin vim_scripts/cscope.vim is installed by PluginSearch->i
 
 Plugin 'skywind3000/asyncrun.vim'       " For Vim8.0
 
@@ -114,8 +141,6 @@ set colorcolumn=100             " highlight column number 100 with color
 highlight ColorColumn ctermbg=darkgray
 
 set timeoutlen=500              " set timoutlen for mappling delay in millseconds (default 1000)
-
-"set tags=./.tags;,.tags
 
 
 " Enable to copy to clipboard for operations like yank, delete, change and put
@@ -565,3 +590,21 @@ if has("cscope")
 endif
 
 
+"
+" a.vim
+"
+" quick commands to switch between source files and headers quickly
+" :A switches to the header file corresponding to the current file being edited (or vise versa)
+" :AS splits and switches
+" :AV vertical splits and switches
+" :AT new tab and switches
+" :AN cycles through matches
+" :IH switches to file under cursor
+" :IHS splits and switches
+" :IHV vertical splits and switches
+" :IHT new tab and switches
+" :IHN cycles through matches
+" <leader>ih switches to file under cursor
+" <leader>is switches to the alternate file of file under cursor (e.g. on  <foo.h> switches to foo.cpp)
+" <leader>ihn cycles through matches
+"
