@@ -321,6 +321,15 @@ elseif l:file =~# '^\f\+\.go$'
 call go#cmd#Build(0)
 endif
 endfunction
+" vim-go using :botright cwindow instead of plain :cwindow, when with TagBag
+" opeing, this will put quick window (invoked by many vim-go command) beneath TagBar.
+"
+" This trigger takes advantage of the fact that the quickfix window can be
+" easily distinguished by its file-type, qf. The wincmd J command is
+" equivalent to the Ctrl+W, Shift+J shortcut telling Vim to move a window to
+" the very bottom (see :help :wincmd and :help ^WJ).
+autocmd FileType qf wincmd J
+
 
 
 "
@@ -386,6 +395,36 @@ let g:tagbar_autofocus = 1
 "auto FileType * nested :call tagbar#autoopen(0)
 "auto BufEnter * nested :call tagbar#autoopen(0)
 "autocmd Filetype c,cpp,go,py nested :TagbarOpen
+" 
+" gotags need to be installed: go get -u github.com/jstemmer/gotags
+"
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+\ }
 
 
 "
@@ -397,6 +436,7 @@ let g:asyncrun_auto = "make"     "Cooperte with errormarker
 let g:asyncrun_status = ''
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 nnoremap <F10> :call asyncrun#quickfix_toggle(8)<cr>   " F10 to toggle quickfix window
+nnoremap <leader>ar :AsyncRun 
 
 "
 " errormarker
