@@ -70,6 +70,7 @@ Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-capslock'
 
 Plugin 'editorconfig/editorconfig-vim'  " have dependency, see github page
 
@@ -140,7 +141,7 @@ set secure                      " Restrict usage of some commands in non-default
 set colorcolumn=100             " highlight column number 100 with color
 highlight ColorColumn ctermbg=darkgray
 
-set timeoutlen=500              " set timoutlen for mappling delay in millseconds (default 1000)
+"set timeoutlen=500              " set timoutlen for mappling delay in millseconds (default 1000)
 
 
 " Enable to copy to clipboard for operations like yank, delete, change and put
@@ -188,6 +189,7 @@ let mapleader = ","
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
+nnoremap <F10> :call asyncrun#quickfix_toggle(8)<cr>   " F10 to toggle quickfix window
 
 " Visual linewise up and down by default (and use gj gk to go quicker)
 noremap <Up> gk
@@ -205,7 +207,7 @@ nnoremap <leader><Enter> :noh<CR>   " Turn off the highlights until you next sea
 nnoremap Y y$
 
 " Enter automatically into the files directory
-autocmd BufEnter * silent! lcd %:p:h
+"autocmd BufEnter * silent! lcd %:p:h
 
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
@@ -213,38 +215,15 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 " Fast saving
 nmap <leader>w :w!<cr>
 
-" Move between window
+""""""""""""""""""""""""
+" Navigate
+""""""""""""""""""""""""
+" Move to window
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Managing tabs
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
-" Opens a new tab with the current buffer's path
-" Usefult when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
-
-" Shortcut to rapidly toggle `set list`, will show invisible
-nmap <leader>l :set list!<CR>
-
-
-""""""""""""""""
-" Show invisible
-""""""""""""""""
-" Use the same symbols as TextMate for tabstops and EOLs
-"set listchars=space:.,tab:▸\ ,eol:¬
-set listchars=space:·,tab:▸\ 
-"Invisible character colors 
-highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
-
-""""""""""""""""
-" Vim command in normal mode
-""""""""""""""""
 " Go to tag
 "
 " An work around when go_to_definiton_use_g not working
@@ -266,6 +245,41 @@ highlight SpecialKey guifg=#4a4a59
 " gt      go to next tab
 " gT      go to previous tab
 " {i} gt  go to tab in pos i
+
+
+"""""""""""""""""""""""""
+" Control tabs
+"""""""""""""""""""""""""
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove 
+" Opens a new tab with the current buffer's path
+" Usefult when editing files in the same directory
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+
+
+""""""""""""""""
+" Show invisible
+""""""""""""""""
+" Use the same symbols as TextMate for tabstops and EOLs
+"set listchars=space:.,tab:▸\ ,eol:¬
+set listchars=space:·,tab:▸\ 
+"Invisible character colors 
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+
+" Shortcut to rapidly toggle `set list`, will show invisible
+nmap <leader>l :set list!<CR>
+
+" Indent/Unindent
+" http://vim.wikia.com/wiki/Shifting_blocks_visually
+nnoremap <tab> >>_
+nnoremap <s-tab> <<_
+inoremap <s-tab> <c-d>
+vnoremap <tab> >gv
+vnoremap <s-tab> <gv
+
 
 """"""""""""""""""""""""""""""
 " Commands
@@ -296,8 +310,8 @@ highlight SpecialKey guifg=#4a4a59
 map <leader>nn :NERDTreeToggle<cr>
 map <leader>n <plug>NERDTreeTabsToggle<CR>
 " run NERDTreeTabs on console vim startup
-
 "let g:nerdtree_tabs_open_on_console_startup=1
+" NerdTreeStatusline
 " nerdtree-git-plugin symbols
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
@@ -409,11 +423,40 @@ autocmd FileType qf wincmd J
 "let g:airline_section_b = '%{strftime("%c")}'
 "let g:airline_section_y = 'BN: %{bufnr("%")}'
 let g:airline_solarized_bg='dark'
+let g:airline#extensions#tabline#enabled = 1  " enable smart tabline, use :bp, :bn
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>- <Plug>AirlineSelectPrevTab
+nmap <leader>+ <Plug>AirlineSelectNextTab
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline#extensions#capslock#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#sha1_len = 10
+let g:airline#extensions#ctrlp#show_adjacent_modes = 1
+let g:airline#extensions#fugitiveline#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#tagbar#flags = 's'
+let g:airline#extensions#ycm#enabled = 1
+let g:airline#extensions#ycm#error_symbol = 'E:'
+let g:airline#extensions#ycm#warning_symbol = 'W:'
 
 
 "
 " c
-"
+
 augroup c
 autocmd!
 autocmd BufRead,BufNewFile *.h,*.c set filetype=c
@@ -462,6 +505,9 @@ let g:clang_library_path='/usr/local/lib/libclang.so.7'
 "
 nnoremap <silent> <leader>b :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
+let g:tagbar_width = 33   " default 40
+let g:tagbar_compact = 1
+let g:tagbar_indent = 1
 
 "auto FileType * nested :call tagbar#autoopen(0)
 "auto BufEnter * nested :call tagbar#autoopen(0)
@@ -505,8 +551,7 @@ let g:asyncrun_open = 8  " Open quickfix automatically at 8 lines height after c
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>  "Cooperate with vim-fugitive
 let g:asyncrun_auto = "make"     "Cooperte with errormarker
 let g:asyncrun_status = ''
-let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
-nnoremap <F10> :call asyncrun#quickfix_toggle(8)<cr>   " F10 to toggle quickfix window
+"let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 nnoremap <leader>ar :AsyncRun 
 
 "
