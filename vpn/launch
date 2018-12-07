@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# systemctl start/stop openvpn can only config one openvpn instance
+# In order to use launch, you need to run 'systemctl stop openvpn service
+# After config openvpn, your can ssh the private ip (such as 172.10.0.4)
+usage() {
+    echo "Usage $(basename $0) [ss|vpn|nas-vpn|qsfs-vpn] kill to stop"
+    exit 1
+}
+
+[ $# -lt 1 ] && usage
+
+case $1 in
+    ss):
+        sslocal -c /etc/shadowsocks/config.json >/dev/null 2>&1 &
+        ;;
+    vpn):
+        openvpn --config /etc/openvpn/vpn-bridge.conf >/dev/null 2>&1 &
+        ;;
+    nas-vpn):
+        openvpn --config /opt/work/nas-test-vpc/nas-vpn.conf >/dev/null 2>&1 &
+        ;;
+    qsfs-vpn):
+        openvpn --config /opt/work/qsfs-pack-vpc/qsfs-vpn.conf >/dev/null 2>&1 &
+        ;;
+    *):
+        usage
+        ;;
+esac
