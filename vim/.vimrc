@@ -79,13 +79,13 @@ Plugin 'Rip-Rip/clang_complete'
 
 Plugin 'majutsushi/tagbar'
 
-Plugin 'skywind3000/asyncrun.vim'       " For Vim8.0
-
 Plugin 'mh21/errormarker.vim'
 
 Plugin 'w0rp/ale'                       " Asynchronouse linting/fixing
 
 Plugin 'vim-scripts/a.vim'              " Alternate Files quickly (.c --> .h)
+
+Plugin 'vim-scripts/Conque-GDB'		" GDB command line interface
 
 call vundle#end()            " required
 " To ignore plugin indent changes, instead use:
@@ -189,7 +189,6 @@ let mapleader = ","
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
-nnoremap <F10> :call asyncrun#quickfix_toggle(8)<cr>   " F10 to toggle quickfix window
 
 " Visual linewise up and down by default (and use gj gk to go quicker)
 noremap <Up> gk
@@ -307,8 +306,8 @@ vnoremap <s-tab> <gv
 "
 " NERD tree
 "
-map <leader>nn :NERDTreeToggle<cr>
-map <leader>n <plug>NERDTreeTabsToggle<CR>
+"map <leader>nn :NERDTreeToggle<cr>
+map <leader>nn <plug>NERDTreeTabsToggle<CR>
 " run NERDTreeTabs on console vim startup
 "let g:nerdtree_tabs_open_on_console_startup=1
 " NerdTreeStatusline
@@ -370,24 +369,24 @@ autocmd FileType go nmap <leader>bb :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>tt  <Plug>(go-test)
 
 " :GoRun
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>rr  <Plug>(go-run)
 
 " :GoDoc
-autocmd FileType go nmap <leader>d <Plug>(go-doc)
+autocmd FileType go nmap <leader>dd <Plug>(go-doc)
 
 " :GoCoverageToggle
-autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <leader>cc <Plug>(go-coverage-toggle)
 
 " :GoInfo
-autocmd FileType go nmap <leader>i <Plug>(go-info)
+autocmd FileType go nmap <leader>ii <Plug>(go-info)
 
 " :GoMetaLinter
 autocmd FileType go nmap <leader>ll <Plug>(go-metalinter)
 
 " :GoDef but opens in a vertical split
-autocmd FileType go nmap <leader>v <Plug>(go-def-vertical)
+autocmd FileType go nmap <leader>vv <Plug>(go-def-vertical)
 " :GoDef but opens in a horizontal split
-autocmd FileType go nmap <leader>s <Plug>(go-def-split)
+autocmd FileType go nmap <leader>ss <Plug>(go-def-split)
 
 " :GoAlternate  commands :A, :AV, :AS and :AT
 autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
@@ -492,6 +491,7 @@ let g:ycm_key_list_previous_completion=[]
 "let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
 nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>
+let g:ycm_key_detailed_diagnostics = '<leader>yd'
 
 
 "
@@ -544,15 +544,6 @@ let g:tagbar_type_go = {
 \ }
 
 
-"
-" asyncrun
-"
-let g:asyncrun_open = 8  " Open quickfix automatically at 8 lines height after command starts
-command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>  "Cooperate with vim-fugitive
-let g:asyncrun_auto = "make"     "Cooperte with errormarker
-let g:asyncrun_status = ''
-"let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
-nnoremap <leader>ar :AsyncRun 
 
 "
 " errormarker
@@ -695,3 +686,23 @@ endif
 " <leader>ihn cycles through matches
 
 
+"
+" Conque-GDB
+"
+let g:ConqueGdb_Leader = '\'
+let g:ConqueGdb_SaveHistory = 1
+nnoremap <silent> <C-\>Y :ConqueGdbCommand y<cr>
+nnoremap <silent> <C-\>N :ConqueGdbCommand n<cr>
+
+"
+" ConqueTerm
+"
+nnoremap <C-\>b     :ConqueTermSplit bash<cr>
+nnoremap <C-\>vb    :ConqueTermVSplit bash<cr>
+
+"
+"https://michaelthessel.com/go-vim-debugging-with-gdb/
+"
+let g:ConqueTerm_Color = 2
+let g:ConqueTerm_CloseOnEnd = 1
+let g:ConqueTerm_StartMessages = 0
