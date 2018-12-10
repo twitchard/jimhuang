@@ -85,7 +85,11 @@ Plugin 'w0rp/ale'                       " Asynchronouse linting/fixing
 
 Plugin 'vim-scripts/a.vim'              " Alternate Files quickly (.c --> .h)
 
-Plugin 'vim-scripts/Conque-GDB'		" GDB command line interface
+Plugin 'vim-scripts/Conque-GDB'         " GDB command line interface
+
+Plugin 'Shougo/vimproc.vim'             " Need manual building https://github.com/Shougo/vimproc.vim#vundle
+Plugin 'Shougo/vimshell.vim'
+Plugin 'sebdah/vim-delve'
 
 call vundle#end()            " required
 " To ignore plugin indent changes, instead use:
@@ -516,31 +520,31 @@ let g:tagbar_indent = 1
 " gotags need to be installed: go get -u github.com/jstemmer/gotags
 "
 let g:tagbar_type_go = {
-	\ 'ctagstype' : 'go',
-	\ 'kinds'     : [
-		\ 'p:package',
-		\ 'i:imports:1',
-		\ 'c:constants',
-		\ 'v:variables',
-		\ 't:types',
-		\ 'n:interfaces',
-		\ 'w:fields',
-		\ 'e:embedded',
-		\ 'm:methods',
-		\ 'r:constructor',
-		\ 'f:functions'
-	\ ],
-	\ 'sro' : '.',
-	\ 'kind2scope' : {
-		\ 't' : 'ctype',
-		\ 'n' : 'ntype'
-	\ },
-	\ 'scope2kind' : {
-		\ 'ctype' : 't',
-		\ 'ntype' : 'n'
-	\ },
-	\ 'ctagsbin'  : 'gotags',
-	\ 'ctagsargs' : '-sort -silent'
+        \ 'ctagstype' : 'go',
+        \ 'kinds'     : [
+                \ 'p:package',
+                \ 'i:imports:1',
+                \ 'c:constants',
+                \ 'v:variables',
+                \ 't:types',
+                \ 'n:interfaces',
+                \ 'w:fields',
+                \ 'e:embedded',
+                \ 'm:methods',
+                \ 'r:constructor',
+                \ 'f:functions'
+        \ ],
+        \ 'sro' : '.',
+        \ 'kind2scope' : {
+                \ 't' : 'ctype',
+                \ 'n' : 'ntype'
+        \ },
+        \ 'scope2kind' : {
+                \ 'ctype' : 't',
+                \ 'ntype' : 'n'
+        \ },
+        \ 'ctagsbin'  : 'gotags',
+        \ 'ctagsargs' : '-sort -silent'
 \ }
 
 
