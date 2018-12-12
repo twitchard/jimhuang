@@ -1,10 +1,8 @@
 #!/bin/sh
-#  add git cscope alias
-#  git config --global alias.ctags '!.git/hooks/ctags'
 set -e
 PATH="/usr/local/bin:$PATH"
 dir="`git rev-parse --git-dir`"
 trap 'rm -f "$dir/$$.tags"' EXIT
-git ls-files | \
+git ls-files -c -o --exclude=cscope* --exclude=tags --exclude=build* | \
   ctags --tag-relative=yes -L - -f"$dir/$$.tags" --languages=-javascript,sql --recurse=yes --exclude=.git
 mv "$dir/$$.tags" "$dir/tags"
