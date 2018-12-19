@@ -27,7 +27,7 @@
 "  Existing Issues
 "     YCM ValueError Still no compile flags  https://github.com/Valloric/YouCompleteMe/issues/700
 "     " currently when specify .ycm_extra_conf.py, ale cannot be toggle off/on
-"  
+"
 "  <Shift+K>: put cusor on a symbol, jump to the symbol defs in vim doc
 "
 "
@@ -42,7 +42,7 @@ filetype plugin indent on       " ... and enable filetype detection
 
 """"""""""""""""""
 " Vundle         "
-"""""""""""""""""" 
+""""""""""""""""""
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -58,7 +58,7 @@ Plugin 'flazz/vim-colorschemes'         " could use fatih/moloki
 
 Plugin 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
-Plugin 'Xuyuanp/nerdtree-git-plugin' 
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 Plugin 'fatih/vim-go'
 Plugin 'AndrewRadev/splitjoin.vim'
@@ -86,6 +86,8 @@ Plugin 'w0rp/ale'                       " Asynchronouse linting/fixing
 Plugin 'vim-scripts/a.vim'              " Alternate Files quickly (.c --> .h)
 
 Plugin 'vim-scripts/Conque-GDB'         " GDB command line interface
+
+Plugin 'vim-scripts/grep.vim'           " Search tools(grep, egrep, fgrep, agrep)
 
 Plugin 'Shougo/vimproc.vim'             " Need manual building https://github.com/Shougo/vimproc.vim#vundle
 Plugin 'Shougo/vimshell.vim'
@@ -256,7 +258,7 @@ map <C-l> <C-W>l
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
+map <leader>tm :tabmove
 " Opens a new tab with the current buffer's path
 " Usefult when editing files in the same directory
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
@@ -267,8 +269,8 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 """"""""""""""""
 " Use the same symbols as TextMate for tabstops and EOLs
 "set listchars=space:.,tab:▸\ ,eol:¬
-set listchars=space:·,tab:▸\ 
-"Invisible character colors 
+set listchars=space:·,tab:▸\
+"Invisible character colors
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
@@ -277,8 +279,8 @@ nmap <leader>l :set list!<CR>
 
 " Indent/Unindent
 " http://vim.wikia.com/wiki/Shifting_blocks_visually
-nnoremap <tab> >>_
-nnoremap <s-tab> <<_
+"nnoremap <tab> >>_ " avoid to prevent conflict with <C-I> jump forword
+"nnoremap <s-tab> <<_
 inoremap <s-tab> <c-d>
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
@@ -302,6 +304,13 @@ vnoremap <s-tab> <gv
 :command! -range=% -nargs=0 Tab2Space execute '<line1>,<line2>s#^\t\+#\=repeat(" ", len(submatch(0))*' . &ts . ')'
 :command! -range=% -nargs=0 Space2Tab execute '<line1>,<line2>s#^\( \{'.&ts.'\}\)\+#\=repeat("\t", len(submatch(0))/' . &ts . ')'
 
+" strip trailing space
+function! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfunction
+command! TrimWhitespace call TrimWhitespace()
 
 
 """"""""""""""""""""""""""""""
@@ -367,36 +376,36 @@ augroup go
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
   " :GoBuild and :GoTestCompile
-autocmd FileType go nmap <leader>bb :<C-u>call <SID>build_go_files()<CR>
+  autocmd FileType go nmap <leader>bb :<C-u>call <SID>build_go_files()<CR>
 
-" :GoTest
-autocmd FileType go nmap <leader>tt  <Plug>(go-test)
+  " :GoTest
+  autocmd FileType go nmap <leader>tt  <Plug>(go-test)
 
-" :GoRun
-autocmd FileType go nmap <leader>rr  <Plug>(go-run)
+  " :GoRun
+  autocmd FileType go nmap <leader>rr  <Plug>(go-run)
 
-" :GoDoc
-autocmd FileType go nmap <leader>dd <Plug>(go-doc)
+  " :GoDoc
+  autocmd FileType go nmap <leader>dd <Plug>(go-doc)
 
-" :GoCoverageToggle
-autocmd FileType go nmap <leader>cc <Plug>(go-coverage-toggle)
+  " :GoCoverageToggle
+  autocmd FileType go nmap <leader>cc <Plug>(go-coverage-toggle)
 
-" :GoInfo
-autocmd FileType go nmap <leader>ii <Plug>(go-info)
+  " :GoInfo
+  autocmd FileType go nmap <leader>ii <Plug>(go-info)
 
-" :GoMetaLinter
-autocmd FileType go nmap <leader>ll <Plug>(go-metalinter)
+  " :GoMetaLinter
+  autocmd FileType go nmap <leader>ll <Plug>(go-metalinter)
 
-" :GoDef but opens in a vertical split
-autocmd FileType go nmap <leader>vv <Plug>(go-def-vertical)
-" :GoDef but opens in a horizontal split
-autocmd FileType go nmap <leader>ss <Plug>(go-def-split)
+  " :GoDef but opens in a vertical split
+  autocmd FileType go nmap <leader>vv <Plug>(go-def-vertical)
+  " :GoDef but opens in a horizontal split
+  autocmd FileType go nmap <leader>ss <Plug>(go-def-split)
 
-" :GoAlternate  commands :A, :AV, :AS and :AT
-autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+  " :GoAlternate  commands :A, :AV, :AS and :AT
+  autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+  autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+  autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+  autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 augroup END
 
 " build_go_files is a custom function that builds or compiles the test file.
@@ -451,7 +460,7 @@ let g:airline#extensions#branch#sha1_len = 10
 let g:airline#extensions#ctrlp#show_adjacent_modes = 1
 let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
-let g:airline#extensions#tagbar#flags = 's'
+let g:airline#extensions#tagbar#flags = 'f'
 let g:airline#extensions#ycm#enabled = 1
 let g:airline#extensions#ycm#error_symbol = 'E:'
 let g:airline#extensions#ycm#warning_symbol = 'W:'
@@ -477,9 +486,9 @@ let g:EditorConfig_exclude_patterns = ['scp://.*']      " Avoid loading EditorCo
 "
 " Tab confilit YCM & ultisnips
 "
-" 
+"
 ""Option1: Change ultisnips expand trigger to <c-j>
-"let g:UltiSnipsExpandTrigger="<c-j>"    
+"let g:UltiSnipsExpandTrigger="<c-j>"
 "let g:UltiSnipsJumpForwardTrigger="<c-j>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 ""Option2: Make YCM not use Tab key, YCM will cycle through completion with <C-N> and <C-P>
@@ -516,7 +525,7 @@ let g:tagbar_indent = 1
 "auto FileType * nested :call tagbar#autoopen(0)
 "auto BufEnter * nested :call tagbar#autoopen(0)
 "autocmd Filetype c,cpp,go,py nested :TagbarOpen
-" 
+"
 " gotags need to be installed: go get -u github.com/jstemmer/gotags
 "
 let g:tagbar_type_go = {
@@ -576,8 +585,8 @@ if has("cscope")
     "
     " NOTE invoke /usr/local/bin/gentags at beginning
     "
-    
-    "set csprg=/usr/bin/cscope                                                     
+
+    "set csprg=/usr/bin/cscope
 
     " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
     set cscopetag
@@ -593,7 +602,7 @@ if has("cscope")
     " add any cscope database in current directory
     if filereadable("cscope.out")
         cs add $PWD/cscope.out $PWD
-    " else add the database pointed to by environment variable 
+    " else add the database pointed to by environment variable
     elseif $CSCOPE_DB != ""
         cs add $CSCOPE_DB
     endif
@@ -627,17 +636,17 @@ if has("cscope")
     " To do the first type of search, hit '<leader>c', followed by one of the
     " cscope search types above (s,g,c,t,e,f,i,d).  The result of your cscope
     " search will be displayed in the current window.  You can use CTRL-T to
-    " go back to where you were before the search.  
+    " go back to where you were before the search.
     "
 
-    nmap <leader>ss :cs find s <C-R>=expand("<cword>")<CR><CR>	
-    nmap <leader>sg :cs find g <C-R>=expand("<cword>")<CR><CR>	
-    nmap <leader>sc :cs find c <C-R>=expand("<cword>")<CR><CR>	
-    nmap <leader>st :cs find t <C-R>=expand("<cword>")<CR><CR>	
-    nmap <leader>se :cs find e <C-R>=expand("<cword>")<CR><CR>	
-    nmap <leader>sf :cs find f <C-R>=expand("<cfile>")<CR><CR>	
+    nmap <leader>ss :cs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <leader>sg :cs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap <leader>sc :cs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap <leader>st :cs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap <leader>se :cs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap <leader>sf :cs find f <C-R>=expand("<cfile>")<CR><CR>
     nmap <leader>si :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    nmap <leader>sd :cs find d <C-R>=expand("<cword>")<CR><CR>	
+    nmap <leader>sd :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 
     """"""""""""" key map timeouts
@@ -646,7 +655,7 @@ if has("cscope")
     " You may find that too short with the above typemaps.  If so, you should
     " either turn off mapping timeouts via 'notimeout'.
     "
-    "set notimeout 
+    "set notimeout
     "
     " Or, you can keep timeouts, by uncommenting the timeoutlen line below,
     " with your own personal favorite value (in milliseconds):
@@ -659,7 +668,7 @@ if has("cscope")
     " delays as vim waits for a keystroke after you hit ESC (it will be
     " waiting to see if the ESC is actually part of a key code like <F1>).
     "
-    "set ttimeout 
+    "set ttimeout
     "
     " personally, I find a tenth of a second to work well for key code
     " timeouts. If you experience problems and have a slow terminal or network
@@ -698,15 +707,21 @@ let g:ConqueGdb_SaveHistory = 1
 nnoremap <silent> <C-\>Y :ConqueGdbCommand y<cr>
 nnoremap <silent> <C-\>N :ConqueGdbCommand n<cr>
 
+
 "
 " ConqueTerm
 "
 nnoremap <C-\>b     :ConqueTermSplit bash<cr>
 nnoremap <C-\>vb    :ConqueTermVSplit bash<cr>
-
 "
 "https://michaelthessel.com/go-vim-debugging-with-gdb/
 "
 let g:ConqueTerm_Color = 2
 let g:ConqueTerm_CloseOnEnd = 1
 let g:ConqueTerm_StartMessages = 0
+
+
+"
+" grep.vim
+"
+nnoremap <silent> <F3> :Grep<cr>

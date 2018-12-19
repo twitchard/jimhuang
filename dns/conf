@@ -1,0 +1,2 @@
+/etc/nsswitch.conf   man nsswitch.conf
+/etc/resolv.conf     man resolv.conf
