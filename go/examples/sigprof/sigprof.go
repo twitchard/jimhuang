@@ -21,6 +21,14 @@ func go_stop_cpuprofile() {
 	pprof.StopCPUProfile()
 }
 
+//export go_memprofile
+func go_memprofile() {
+	file := "/tmp/test_mem.prof"
+	f, _ := os.Create(file)
+	pprof.WriteHeapProfile(f)
+	f.Close()
+}
+
 //export go_listenAndServe
 func go_listenAndServe() {
 	go func() {
@@ -33,7 +41,7 @@ func go_leakyFunc() {
 	s := make([]string, 3)
 	for i := 0; i < 1000000; i++ {
 		s = append(s, "magical pandas")
-		if (i % 10000) == 0 {
+		if (i % 100000) == 0 {
 			time.Sleep(500 * time.Millisecond)
 		}
 	}

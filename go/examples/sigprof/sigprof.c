@@ -5,9 +5,9 @@
 #include <time.h>
 #include <unistd.h>
 
-int sleep_30s() {
+int sleep_10s() {
 	time_t start = time(NULL);
-	while (time(NULL) < start + 30) {
+	while (time(NULL) < start + 10) {
 		char buffer[26];
 		struct tm *tm_info;
 		time_t timer;
@@ -21,11 +21,20 @@ int sleep_30s() {
 }
 
 int main() {
-	go_listenAndServe();
+	// option 2: mannual profile collection.
+	// start
+	go_start_cpuprofile();
+
+	//option 1: ideal solution for network servers
+	//go_listenAndServe();
+	
 	go_leakyFunc();
-	sleep_30s();
-	//go_start_cpuprofile();
-	//go_stop_cpuprofile();
+	go_memprofile();  // option 2 for mem profile
+	sleep_10s();
+
+	// option 2: mannual profile collection. 
+	// stop
+	go_stop_cpuprofile();
 	return 0;
 }
 
