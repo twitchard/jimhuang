@@ -20,11 +20,16 @@
 //
 package main
 
-import "fmt"
-
-import "cfg"
-import "lsg"
-import "havlakloopfinder"
+import (
+	"cfg"
+	"flag"
+	"fmt"
+	"havlakloopfinder"
+	"log"
+	"lsg"
+	"os"
+	"runtime/pprof"
+)
 
 //======================================================
 // Testing Code
@@ -65,7 +70,19 @@ func buildBaseLoop(cfgraph *cfg.CFG, from int) int {
 	return footer
 }
 
+var cpuprofile = flag.String("cpuprofile", "", "write cpu profile to file")
+
 func main() {
+	flag.Parse()
+	if *cpuprofile != "" {
+		file, err := os.Create(*cpuprofile)
+		if err != nil {
+			log.Fatal(err)
+		}
+		pprof.StartCPUProfile(file)
+		defer pprof.StopCPUProfile()
+	}
+
 	fmt.Printf("Welcome to LoopTesterApp, Go edition\n")
 
 	lsgraph := lsg.NewLSG()
