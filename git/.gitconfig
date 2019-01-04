@@ -1,0 +1,46 @@
+[core]
+	editor = vi
+	autocrlf = input
+	excludesfile = /home/jim/.gitignore_global
+[user]
+	email = jimhuaang@outlook.com
+	name = Jim Huang
+	signingkey = B54E5999D38BF271
+[diff]
+        renames = true
+	submodule = log
+[color]
+    diff = auto
+    status = auto
+	ui = true
+[sendemail]
+    smtpuser = jimhuang@yunify.com
+    smtpserverport = 25
+    smtpserver = smtp.yunify.com
+
+[credential]
+	helper = cache
+[push]
+	default = simple
+[alias]
+lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+lg = !"git lg1"
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	ctags = !.git/hooks/ctags
+	cscope = !.git/hooks/cscope
+[gpg]
+	program = /usr/bin/gpg2
+[commit]
+	gpgsign = true
+[pull]
+	rebase = true
+[init]
+	templatedir = ~/.git_template
+[merge]
+	tool = vimdiff

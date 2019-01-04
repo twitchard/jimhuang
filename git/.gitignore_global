@@ -1,0 +1,5 @@
+.vscode/
+debug
+*.clang-format
+cscope.out
+tags
