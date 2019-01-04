@@ -288,18 +288,6 @@ inoremap <s-tab> <c-d>
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
 
-""""""""""""""""""""""""""""""
-" Insert-mode only Caps Lock
-" To use Ctrl-^ to toggle "Caps Lock
-""""""""""""""""""""""""""""""
-" Execute 'lnoremap x X' and 'lnoremap X x' for each letter a-z.
-for c in range(char2nr('A'), char2nr('Z'))
-  execute 'lnoremap ' . nr2char(c+32) . ' ' . nr2char(c)
-  execute 'lnoremap ' . nr2char(c) . ' ' . nr2char(c+32)
-endfor
-" Kill the capslock when leaving insert mode.
-autocmd InsertLeave * set iminsert=0
-
 
 """"""""""""""""""""""""""""""
 " Commands
@@ -760,3 +748,15 @@ let g:gitgutter_diff_args = '-w'      "ignore whitespace
 "
 " Update signs when save a file
 "autocmd BufWritePost * GitGutter
+
+
+
+""""""""""""""""""""""""""""""
+"Capslock and escape has been swapped
+"http://vim.wikia.com/wiki/Map_caps_lock_to_escape_in_XWindows
+"""""""""""""""""""""""""""""" 
+"
+" vim-capslock
+"
+imap <leader>c <Plug>CapsLockToggle
+nmap <leader>C <Plug>CapsLockToggle
