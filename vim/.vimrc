@@ -70,7 +70,10 @@ Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-capslock'
+
+Plugin '907th/vim-auto-save'
 
 Plugin 'editorconfig/editorconfig-vim'  " have dependency, see github page
 
@@ -148,7 +151,7 @@ set colorcolumn=100             " highlight column number 100 with color
 highlight ColorColumn ctermbg=darkgray
 
 "set timeoutlen=500              " set timoutlen for mappling delay in millseconds (default 1000)
-
+set updatetime=100               " in milliseconds (default 4000)
 
 " Enable to copy to clipboard for operations like yank, delete, change and put
 " http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
@@ -269,7 +272,7 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 """"""""""""""""
 " Use the same symbols as TextMate for tabstops and EOLs
 "set listchars=space:.,tab:▸\ ,eol:¬
-set listchars=space:·,tab:▸\
+set listchars=tab:▸\ ,space:·
 "Invisible character colors
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
@@ -284,6 +287,18 @@ nmap <leader>l :set list!<CR>
 inoremap <s-tab> <c-d>
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
+
+""""""""""""""""""""""""""""""
+" Insert-mode only Caps Lock
+" To use Ctrl-^ to toggle "Caps Lock
+""""""""""""""""""""""""""""""
+" Execute 'lnoremap x X' and 'lnoremap X x' for each letter a-z.
+for c in range(char2nr('A'), char2nr('Z'))
+  execute 'lnoremap ' . nr2char(c+32) . ' ' . nr2char(c)
+  execute 'lnoremap ' . nr2char(c) . ' ' . nr2char(c+32)
+endfor
+" Kill the capslock when leaving insert mode.
+autocmd InsertLeave * set iminsert=0
 
 
 """"""""""""""""""""""""""""""
@@ -428,6 +443,14 @@ endfunction
 autocmd FileType qf wincmd J
 
 
+"
+" c
+"
+augroup c
+autocmd!
+autocmd BufRead,BufNewFile *.h,*.c set filetype=c
+augroup END
+
 
 "
 " airline
@@ -449,7 +472,7 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>- <Plug>AirlineSelectPrevTab
-nmap <leader>+ <Plug>AirlineSelectNextTab
+nmap <leader>= <Plug>AirlineSelectNextTab
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#right_sep = ''
@@ -465,14 +488,12 @@ let g:airline#extensions#ycm#enabled = 1
 let g:airline#extensions#ycm#error_symbol = 'E:'
 let g:airline#extensions#ycm#warning_symbol = 'W:'
 
-
 "
-" c
+" vim-auto-save
+"
+let g:auto_save = 1
+let g:auto_save_events = ["FocusLost","WinLeave","TabLeave","BufWritePost","BufLeave","DirChanged","TabClosed"]
 
-augroup c
-autocmd!
-autocmd BufRead,BufNewFile *.h,*.c set filetype=c
-augroup END
 
 
 "
@@ -725,3 +746,17 @@ let g:ConqueTerm_StartMessages = 0
 " grep.vim
 "
 nnoremap <silent> <F3> :Grep<cr>
+
+
+"
+" vim-gitgutter
+"
+let g:gitgutter_diff_args = '-w'      "ignore whitespace
+"
+" Turn off realtime update
+" Add this to your vim configuration (in an /after/plugin directory):
+" .vim/after/plugin/gitgutter.vim
+" autocmd! gitgutter CursorHold,CursorHoldI
+"
+" Update signs when save a file
+"autocmd BufWritePost * GitGutter
