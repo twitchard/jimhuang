@@ -76,6 +76,7 @@ Plugin 'zivyangll/git-blame.vim'
 Plugin 'tpope/vim-capslock'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-dadbod'               "interact with database
 
 Plugin '907th/vim-auto-save'
 
