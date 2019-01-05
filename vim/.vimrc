@@ -74,6 +74,8 @@ Plugin 'tpope/vim-rhubarb.git'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'zivyangll/git-blame.vim'
 Plugin 'tpope/vim-capslock'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
 
 Plugin '907th/vim-auto-save'
 
@@ -196,7 +198,8 @@ set path+=**
 " Set leader shortcut to a comma ','. By default it's the backslash
 let mapleader = ","
 
-" Quickfix window
+" Jump to next error with Ctrl-n and previous error with Ctrl-m. Close the
+" quickfix window with <leader>a
 map <leader>n :cnext<CR>
 map <leader>m :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
@@ -781,3 +784,18 @@ nnoremap <silent> <leader>s :<C-u>call gitblame#echo()<CR>
 "
 imap <leader>c <Plug>CapsLockToggle
 nmap <leader>C <Plug>CapsLockToggle
+
+
+"
+" vim-commentary
+"
+" https://github.com/tpope/vim-commentary#faq
+autocmd FileType apache setlocal commentstring=#\ %s
+"
+" To have // by default for c and cpp
+" setlocal commentstring=//\ %s in after/ftplugin/c.vim
+" setlocal commentstring=//\ %s in after/ftplugin/cpp.vim
+
+" http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
+" c, cpp single-line comment
+au FileType c,cpp setlocal comments-=:// comments+=f://
