@@ -3,7 +3,6 @@
 "    ctags	github.com/universal-ctags/ctags
 "    gtags      github.com/jstemmer/gotags
 "    cscope     apt-git install cscope "vim plugin not installed by vundle, refer tutorial
-"    YouCompleteMe  github.com/Valloric/YouCompleteMe
 "    editorconfig-core-c  github.com/editorconfig/editorconfig-core-c
 "
 "  Good References
@@ -14,19 +13,13 @@
 "    4) Vim and ctas  https://andrew.stwrt.ca/posts/vim-ctags/
 "    5) vim-go tutorial  https://github.com/fatih/vim-go-tutorial#go-to-definition
 "    6) Using Vim as c/c++ IDE  http://www.alexeyshmalko.com/2014/using-vim-as-c-cpp-ide/
-"    7) http://www.alexeyshmalko.com/2014/youcompleteme-ultimate-autocomplete-plugin-for-vim/
-"    8) YCM installation    https://github.com/Valloric/YouCompleteMe#linux-64-bit
-"    9) some mapping refs  https://github.com/amix/vimrc#normal-mode-mappings
-"    10) EditorConfig  https://editorconfig.org/
+"    7) some mapping refs  https://github.com/amix/vimrc#normal-mode-mappings
+"    8) EditorConfig  https://editorconfig.org/
 "
 "  Issues which are fixed
 "    vim-go quickfx windwo opening beneth TagBar  https://github.com/fatih/vim-go/issues/108
 "    Let path default value search downward CWD   https://github.com/neovim/neovim/issues/3209
-"    YCM and UltiSnips <Tab> conflict
 "
-"  Existing Issues
-"     YCM ValueError Still no compile flags  https://github.com/Valloric/YouCompleteMe/issues/700
-"     " currently when specify .ycm_extra_conf.py, ale cannot be toggle off/on
 "
 "  <Shift+K>: put cusor on a symbol, jump to the symbol defs in vim doc
 "
@@ -78,12 +71,12 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-dadbod'               "interact with database
 Plugin 'tpope/vim-eunuch'               " vim sugar for unix shell command
+Plugin 'tpope/vim-dispatch'             " Asynchronous build and test dispatcher
 
 Plugin '907th/vim-auto-save'
 
 Plugin 'editorconfig/editorconfig-vim'  " have dependency, see github page
 
-Plugin 'Valloric/YouCompleteMe'         " see https://github.com/Valloric/YouCompleteMe
 Plugin 'Rip-Rip/clang_complete'
 
 Plugin 'majutsushi/tagbar'
@@ -101,6 +94,16 @@ Plugin 'vim-scripts/grep.vim'           " Search tools(grep, egrep, fgrep, agrep
 Plugin 'Shougo/vimproc.vim'             " Need manual building https://github.com/Shougo/vimproc.vim#vundle
 Plugin 'Shougo/vimshell.vim'
 Plugin 'sebdah/vim-delve'
+
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neoinclude.vim'
+Plugin 'Shougo/context_filetype.vim'
+Plugin 'Shougo/neco-syntax'
+Plugin 'Shougo/neopairs.vim'
+Plugin 'vim-scripts/sudo.vim'
+
+Plugin 'osyo-manga/vim-reunions'
+Plugin 'osyo-manga/vim-marching'      "Asynchronous code completion for C and C++
 
 call vundle#end()            " required
 " To ignore plugin indent changes, instead use:
@@ -504,34 +507,13 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*'] " Ensure to works well w
 let g:EditorConfig_exclude_patterns = ['scp://.*']      " Avoid loading EditorConfig for any remote files over ssh
 
 
-"
-" Tab confilit YCM & ultisnips
-"
-"
-""Option1: Change ultisnips expand trigger to <c-j>
-"let g:UltiSnipsExpandTrigger="<c-j>"
-"let g:UltiSnipsJumpForwardTrigger="<c-j>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-""Option2: Make YCM not use Tab key, YCM will cycle through completion with <C-N> and <C-P>
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
-
-
-"
-" YouCompleteMe (YCM)
-"
-" https://jonasdevlieghere.com/a-better-youcompleteme-config1
-" comment this as this not work well with ale,  ale cannot toggle off
-"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
-nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>
-let g:ycm_key_detailed_diagnostics = '<leader>yd'
-
 
 "
 " clang_complete
 "
 let g:clang_library_path='/usr/local/lib/libclang.so.7'
+let g:clang_snippets = 1
+let g:clang_snippets_engine = 'ultisnips'
 
 
 "
@@ -801,3 +783,60 @@ autocmd FileType apache setlocal commentstring=#\ %s
 " http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
 " c, cpp single-line comment
 au FileType c,cpp setlocal comments-=:// comments+=f://
+
+"
+" neocomplete
+"
+" need to build vim with lua
+" https://gist.github.com/webgefrickel/5f86346208be23a523e0c4ad7674dca7
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_auto_close_preview = 0 " prevent from close DiffGitCached window from vim-fugitive
+" if not work with clang-complete, try following setting
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.c =
+      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+let g:neocomplete#force_omni_input_patterns.cpp =
+      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+let g:neocomplete#force_omni_input_patterns.objc =
+      \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)'
+let g:neocomplete#force_omni_input_patterns.objcpp =
+      \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
+let g:clang_complete_auto = 0
+let g:clang_auto_select = 0
+let g:clang_omnicppcomplete_compliance = 0
+let g:clang_make_default_keymappings = 0
+let g:clang_use_library = 1
+
+
+"
+" vim-marching
+"
+"
+let g:marching_clang_command = "/usr/local/bin/clang"
+let g:marching#clang_command#options = {
+\	"cpp" : "-std=gnu++1y"
+\}
+let g:marching_include_paths = [
+\    "/usr/include/c++",
+\    "/usr/local/include/c++",
+\    "/usr/include/boost"
+\]
+
+let g:marching_enable_neocomplete = 1
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+let g:neocomplete#force_omni_input_patterns.cpp =
+	\ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+
+imap <buffer> <C-x><C-o> <Plug>(marching_start_omni_complete)
+imap <buffer> <C-x><C-x><C-o> <Plug>(marching_force_start_omni_complete)
+
+let g:marching#default_config = {
+\	"ignore_pat" : '^_\D'
+\}
+
+let g:marching_backend = "sync_clang_command"
