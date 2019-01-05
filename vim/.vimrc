@@ -1,4 +1,4 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 "  Dependencies
 "    ctags	github.com/universal-ctags/ctags
 "    gtags      github.com/jstemmer/gotags
@@ -70,7 +70,9 @@ Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-rhubarb.git'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'zivyangll/git-blame.vim'
 Plugin 'tpope/vim-capslock'
 
 Plugin '907th/vim-auto-save'
@@ -113,7 +115,8 @@ call vundle#end()            " required
 """"""""""""""""""""""
 "      Settings      "
 """"""""""""""""""""""
-set shell=/bin/bash
+set shell=bash
+set shellpipe=>                 " prevent output being copied to stdout
 set ttyfast                     " Indicate fast terminal conn for faster redraw
 set ttymouse=xterm2             " Indicate terminal type for mouse codes
 set ttyscroll=3                 " Speedup scrolling
@@ -449,6 +452,9 @@ let g:airline_solarized_bg='dark'
 let g:airline#extensions#tabline#enabled = 1  " enable smart tabline, use :bp, :bn
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#excludes = ['tree*']  " configure filename match rules to exclude
+let g:airline#extensions#tabline#buffers_label = 'b'
+let g:airline#extensions#tabline#tabs_label = 't'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
@@ -465,6 +471,8 @@ let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline#extensions#tabline#show_close_button = 1 
+let g:airline#extensions#tabline#close_symbol = 'X'
 let g:airline#extensions#capslock#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#sha1_len = 10
@@ -737,6 +745,15 @@ nnoremap <silent> <F3> :Grep<cr>
 
 
 "
+" vim-fugitive
+"
+" https://github.com/tpope/vim-fugitive#faq
+" patch that automatically opens the quickfix window after :Ggrep
+autocmd QuickFixCmdPost *grep* cwindow
+" Prevent Glog output to ternimal instead of quickfix window
+" https://github.com/tpope/vim-fugitive/issues/677
+nnoremap <leader>gl :silent! Glog<CR> :redraw!<CR>
+
 " vim-gitgutter
 "
 let g:gitgutter_diff_args = '-w'      "ignore whitespace
@@ -749,6 +766,11 @@ let g:gitgutter_diff_args = '-w'      "ignore whitespace
 " Update signs when save a file
 "autocmd BufWritePost * GitGutter
 
+
+"
+" git-blame.vim
+"
+nnoremap <silent> <leader>s :<C-u>call gitblame#echo()<CR>
 
 
 """"""""""""""""""""""""""""""
