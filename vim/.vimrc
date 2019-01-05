@@ -196,10 +196,9 @@ set path+=**
 " Set leader shortcut to a comma ','. By default it's the backslash
 let mapleader = ","
 
-" Jump to next error with Ctrl-n and previous error with Ctrl-m. Close the
-" quickfix window with <leader>a
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
+" Quickfix window
+map <leader>n :cnext<CR>
+map <leader>m :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
 " Visual linewise up and down by default (and use gj gk to go quicker)
