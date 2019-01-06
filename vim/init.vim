@@ -1,5 +1,5 @@
+"                                  NeoVim
 "
-"								vim8
 "  Dependencies
 "    ctags	github.com/universal-ctags/ctags
 "    gtags      github.com/jstemmer/gotags
@@ -24,10 +24,8 @@
 "
 "  <Shift+K>: put cusor on a symbol, jump to the symbol defs in vim doc
 "
-"
-"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"
 " Should be put at beginnig
 set nocompatible                " Enables us Vim specific features
 filetype off                    " Reset filetype detection first ...
@@ -40,87 +38,44 @@ filetype plugin indent on       " ... and enable filetype detection
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Keep Plugin commands between vundle#begin/end.
-
-Plugin 'flazz/vim-colorschemes'         " could use fatih/moloki
-
-Plugin 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-
+Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
+"Plugin 'vimwiki/vimwiki'
+Plugin 'fatih/molokai'         " color schema
 Plugin 'fatih/vim-go'
+Plugin 'jodosha/vim-godebug'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'ctrlpvim/ctrlp.vim'
-
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-Plugin 'tpope/vim-fugitive'
+Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-git'
-Plugin 'tpope/vim-rhubarb.git'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'zivyangll/git-blame.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb.git' " enable Gbrowse, fugitive addin
 Plugin 'tpope/vim-capslock'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-dadbod'               "interact with database
-Plugin 'tpope/vim-eunuch'               " vim sugar for unix shell command
-Plugin 'tpope/vim-dispatch'             " Asynchronous build and test dispatcher
-
-Plugin '907th/vim-auto-save'
-
+Plugin 'tpope/vim-unimpaired'  "mappings for commonly used ex commands
+Plugin 'tpope/vim-dadbod'      " interact with database
+Plugin 'tpope/vim-eunuch'      " vim sugar for unix shell command
+Plugin 'tpope/vim-dispatch'    " Asynchronous build and test dispatcher
+Plugin 'airblade/vim-gitgutter'
+Plugin 'zivyangll/git-blame.vim'
 Plugin 'editorconfig/editorconfig-vim'  " have dependency, see github page
-
-Plugin 'Rip-Rip/clang_complete'
-
-Plugin 'majutsushi/tagbar'
-
-Plugin 'mh21/errormarker.vim'
-
-Plugin 'w0rp/ale'                       " Asynchronouse linting/fixing
-
-Plugin 'vim-scripts/a.vim'              " Alternate Files quickly (.c --> .h)
-
+Plugin '907th/vim-auto-save'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'vim-scripts/a.vim'              " uAlternate Files quickly (.c --> .h)
 Plugin 'vim-scripts/Conque-GDB'         " GDB command line interface
-
 Plugin 'vim-scripts/grep.vim'           " Search tools(grep, egrep, fgrep, agrep)
-
-Plugin 'Shougo/vimproc.vim'             " Need manual building https://github.com/Shougo/vimproc.vim#vundle
-Plugin 'Shougo/vimshell.vim'
-Plugin 'sebdah/vim-delve'
-
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/neoinclude.vim'
+Plugin 'w0rp/ale'                       " Asynchronouse linting/fixing
+Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plugin 'Shougo/deoplete-clangx'         " c/c++ completion using clang for deoplete
 Plugin 'Shougo/context_filetype.vim'
-Plugin 'Shougo/neco-syntax'
-Plugin 'Shougo/neopairs.vim'
-Plugin 'vim-scripts/sudo.vim'
-
-Plugin 'osyo-manga/vim-reunions'
-Plugin 'osyo-manga/vim-marching'      "Asynchronous code completion for C and C++
-
-Plugin 'vim-syntastic/syntastic'
-Plugin 'vimwiki/vimwiki'
-
+Plugin 'Shougo/neco-syntax'             " use the syntax file as a completion source 
+Plugin 'Shougo/echodoc.vim'             " look selected func' args in deoplete
 call vundle#end()            " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
 
@@ -130,8 +85,6 @@ call vundle#end()            " required
 set shell=bash
 set shellpipe=>                 " prevent output being copied to stdout
 set ttyfast                     " Indicate fast terminal conn for faster redraw
-set ttymouse=xterm2             " Indicate terminal type for mouse codes
-set ttyscroll=3                 " Speedup scrolling
 set laststatus=2                " Show status line always
 set encoding=utf-8              " Set default encoding to UTF-8
 set autoread                    " Automatically read changed files
@@ -158,37 +111,16 @@ set pumheight=10                " Completion window max size
 set nocursorcolumn              " Do not highlight column (speeds up highlighting)
 set nocursorline                " Do not highlight cursor (speeds up highlighting)
 set lazyredraw                  " Wait to redraw
-
 set exrc                        " Forces vim to source .vimrc if it present in working directory
 set secure                      " Restrict usage of some commands in non-default .vimrc files
-
 set colorcolumn=100             " highlight column number 100 with color
-highlight ColorColumn ctermbg=darkgray
-
 "set timeoutlen=500              " set timoutlen for mappling delay in millseconds (default 1000)
 set updatetime=100               " in milliseconds (default 4000)
-
-" Enable to copy to clipboard for operations like yank, delete, change and put
-" http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
-if has('unnamedplus')
-  set clipboard^=unnamed
-  set clipboard^=unnamedplus
-endif
-
 " This enables us to undo files even if you exit Vim.
 if has('persistent_undo')
   set undofile
   set undodir=~/.config/vim/tmp/undo//
 endif
-
-
-"""""""""""""""""""""
-" Colorscheme
-"""""""""""""""""""""
-syntax enable
-:set t_Co=256
-let g:rehash256 = 1
-colorscheme molokai
 
 """""""""""""""""""""""
 " Setting path variable
@@ -201,59 +133,37 @@ let &path.="src/include,/usr/include/AL,"
 " looking for
 set path+=**
 
-""""""""""""""""""""""
-"      Mappings      "
-""""""""""""""""""""""
 
+""""""""""""""""""""""
+" Visualization 
+""""""""""""""""""""""
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,space:·
+"Invisible character colors
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+" color column
+highlight ColorColumn ctermbg=darkgray
+" Colorscheme
+syntax enable
+:set t_Co=256
+let g:rehash256 = 1
+colorscheme molokai
+
+
+""""""""""""""""""""""""
+" Mapping
+""""""""""""""""""""""""
 " Set leader shortcut to a comma ','. By default it's the backslash
 let mapleader = ","
 
-" Jump to next error with Ctrl-n and previous error with Ctrl-m. Close the
-" quickfix window with <leader>a
-map <leader>n :cnext<CR>
-map <leader>m :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
-
-" Visual linewise up and down by default (and use gj gk to go quicker)
-noremap <Up> gk
-noremap <Down> gj
-noremap j gj
-noremap k gk
-
-" Search mappings: These will make it so that going to the next one in a
-" search will center on the line it's found in.
-nnoremap n nzzzv
-nnoremap N Nzzzv
-nnoremap <leader><Enter> :noh<CR>   " Turn off the highlights until you next search
-
-" Act like D and C
-nnoremap Y y$
-
-" Enter automatically into the files directory
-"autocmd BufEnter * silent! lcd %:p:h
-
-" Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
-
-" Fast saving
-nmap <leader>w :w!<cr>
-
-""""""""""""""""""""""""
-" Navigate
-""""""""""""""""""""""""
-" Move to window
+"-- Move to window
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Go to tag
-"
-" An work around when go_to_definiton_use_g not working
-" comment it, use g] instead
-" nnoremap <leader>t :tag <c-r><c-w><cr>
-"
-" Go to definition using g
+"-- Go to definition using g
 " gd      local def
 " dD      global def
 " g*      search for word under cursor
@@ -263,46 +173,34 @@ map <C-l> <C-W>l
 " gf      goto file
 " g]      jump to a tag def
 
-" Go to tab
-"
+"-- Go to tab
 " gt      go to next tab
 " gT      go to previous tab
-" {i} gt  go to tab in pos i
-
-
-"""""""""""""""""""""""""
-" Control tabs
-"""""""""""""""""""""""""
+ 
+"-- Control tabs
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 " Opens a new tab with the current buffer's path
-" Usefult when editing files in the same directory
+" Useful when editing files in the same directory
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
-
-""""""""""""""""
-" Show invisible
-""""""""""""""""
-" Use the same symbols as TextMate for tabstops and EOLs
-"set listchars=space:.,tab:▸\ ,eol:¬
-set listchars=tab:▸\ ,space:·
-"Invisible character colors
-highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
-
+"-- Misc
+" Switch CWD to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>:pwd<cr>
+" Fast saving
+nmap <leader>w :w!<cr>
+" Search mappings: These will make it so that going to the next one in a
+" search will center on the line it's found in.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+" Turn off the highlights until you next search
+nnoremap <leader><Enter> :noh<CR>   
 " Shortcut to rapidly toggle `set list`, will show invisible
 nmap <leader>l :set list!<CR>
-
-" Indent/Unindent
-" http://vim.wikia.com/wiki/Shifting_blocks_visually
-"nnoremap <tab> >>_ " avoid to prevent conflict with <C-I> jump forword
-"nnoremap <s-tab> <<_
-inoremap <s-tab> <c-d>
-vnoremap <tab> >gv
-vnoremap <s-tab> <gv
-
+" Close quickfix window
+nnoremap <leader>a :cclose<CR>
 
 """"""""""""""""""""""""""""""
 " Commands
@@ -332,110 +230,15 @@ command! TrimWhitespace call TrimWhitespace()
 
 
 """"""""""""""""""""""""""""""
-"        Plugin              "
-""""""""""""""""""""""""""""""
-"
-" NERD tree
-"
-"map <leader>nn :NERDTreeToggle<cr>
-map <leader>nn <plug>NERDTreeTabsToggle<CR>
-" run NERDTreeTabs on console vim startup
-"let g:nerdtree_tabs_open_on_console_startup=1
-" NerdTreeStatusline
-" nerdtree-git-plugin symbols
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
+" Autocmd
+"""""""""""""""""""""""""""""
+" Enter automatically into the files directory
+"autocmd BufEnter * silent! lcd %:p:h
 
+" Disable automatic comment insertion for c, cpp, go
+" http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
+au FileType c,cpp,go setlocal comments-=:// comments+=f://
 
-"
-" vim-go
-"
-let g:go_fmt_command = "goimports"
-let g:go_autodetect_gopath = 1
-let g:go_auto_type_info = 1
-let g:go_auto_sameids = 1
-" use only quickfix for all lists
-let g:go_list_type = "quickfix"
-
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_generate_tags = 1
-let g:go_highlight_build_constraints=1
-
-"
-let g:go_metalinter_enabled= ['vet', 'golint', 'errcheck']
-let g:go_metalinter_autosave = 1
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-let g:go_metalinter_deadline = "5s"
-"
-let g:go_version_warning = 0
-
-" Open :GoDeclsDir with ctrl-g
-nmap <C-g> :GoDeclsDir<cr>
-imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
-
-augroup go
-  autocmd!
-
-  " Show by default 4 spaces for a tab
-  autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
-
-  " :GoBuild and :GoTestCompile
-  autocmd FileType go nmap <leader>bb :<C-u>call <SID>build_go_files()<CR>
-
-  " :GoTest
-  autocmd FileType go nmap <leader>tt  <Plug>(go-test)
-
-  " :GoRun
-  autocmd FileType go nmap <leader>rr  <Plug>(go-run)
-
-  " :GoDoc
-  autocmd FileType go nmap <leader>dd <Plug>(go-doc)
-
-  " :GoCoverageToggle
-  autocmd FileType go nmap <leader>cc <Plug>(go-coverage-toggle)
-
-  " :GoInfo
-  autocmd FileType go nmap <leader>ii <Plug>(go-info)
-
-  " :GoMetaLinter
-  autocmd FileType go nmap <leader>ll <Plug>(go-metalinter)
-
-  " :GoDef but opens in a vertical split
-  autocmd FileType go nmap <leader>vv <Plug>(go-def-vertical)
-  " :GoDef but opens in a horizontal split
-  autocmd FileType go nmap <leader>ss <Plug>(go-def-split)
-
-  " :GoAlternate  commands :A, :AV, :AS and :AT
-  autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-  autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-  autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-  autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-augroup END
-
-" build_go_files is a custom function that builds or compiles the test file.
-" It calls :GoBuild if its a Go file, or :GoTestCompile if it's a test file
-function! s:build_go_files()
-let l:file = expand('%')
-if l:file =~# '^\f\+_test\.go$'
-call go#test#Test(0, 1)
-elseif l:file =~# '^\f\+\.go$'
-call go#cmd#Build(0)
-endif
-endfunction
 " vim-go using :botright cwindow instead of plain :cwindow, when with TagBag
 " opeing, this will put quick window (invoked by many vim-go command) beneath TagBar.
 "
@@ -446,25 +249,50 @@ endfunction
 autocmd FileType qf wincmd J
 
 
+""""""""""""""""""""""""""""""
+" Plugins
+"""""""""""""""""""""""""""""
 "
-" c
+" vim-fugitive
 "
-augroup c
-autocmd!
-autocmd BufRead,BufNewFile *.h,*.c set filetype=c
-augroup END
+" https://github.com/tpope/vim-fugitive#faq
+" patch that automatically opens the quickfix window after :Ggrep
+autocmd QuickFixCmdPost *grep* cwindow
+" Prevent Glog output to ternimal instead of quickfix window
+" https://github.com/tpope/vim-fugitive/issues/677
+nnoremap <leader>gl :silent! Glog<CR> :redraw!<CR>
 
+" vim-gitgutter
+"
+let g:gitgutter_diff_args = '-w'      "ignore whitespace
+"
+" Turn off realtime update
+" Add this to your vim configuration (in an /after/plugin directory):
+" .vim/after/plugin/gitgutter.vim
+" autocmd! gitgutter CursorHold,CursorHoldI
+"
+" Update signs when some events happen
+autocmd BufWritePost,WinEnter * GitGutter
+
+"
+" editorconfig-vim
+"
+let g:EditorConfig_exec_path = '/usr/bin/editorconfig'
+" Ensure to works well with fugitive
+let g:EditorConfig_exclude_patterns = ['fugitive://.*'] 
+" Avoid loading EditorConfig for any remote files over ssh
+let g:EditorConfig_exclude_patterns = ['scp://.*']      
 
 "
 " airline
 "
-"let g:airline_section_b = '%{strftime("%c")}'
-"let g:airline_section_y = 'BN: %{bufnr("%")}'
-let g:airline_solarized_bg='dark'
-let g:airline#extensions#tabline#enabled = 1  " enable smart tabline, use :bp, :bn
+"let g:airline_solarized_bg='dark'
+" enable smart tabline, use :bp, :bn
+let g:airline#extensions#tabline#enabled = 1  
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#show_tab_nr = 1
-let g:airline#extensions#tabline#excludes = ['tree*', 'fugitive:*']  " configure filename match rules to exclude
+" configure filename match rules to exclude
+let g:airline#extensions#tabline#excludes = ['tree*', 'fugitive:*']  
 let g:airline#extensions#tabline#buffers_label = 'b'
 let g:airline#extensions#tabline#tabs_label = 't'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -492,9 +320,7 @@ let g:airline#extensions#ctrlp#show_adjacent_modes = 1
 let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#tagbar#flags = 'f'
-let g:airline#extensions#ycm#enabled = 1
-let g:airline#extensions#ycm#error_symbol = 'E:'
-let g:airline#extensions#ycm#warning_symbol = 'W:'
+let g:airline#extensions#ale#enabled = 1
 
 "
 " vim-auto-save
@@ -502,23 +328,124 @@ let g:airline#extensions#ycm#warning_symbol = 'W:'
 let g:auto_save = 1
 let g:auto_save_events = ["FocusLost","WinLeave","TabLeave","BufWritePost","BufLeave","DirChanged","TabClosed"]
 
-
+"
+" git-blame.vim
+"
+nnoremap <silent> <leader>s :<C-u>call gitblame#echo()<CR>
 
 "
-" editorconfig-vim
+" vim-capslock
 "
-let g:EditorConfig_exec_path = '/usr/bin/editorconfig'
-let g:EditorConfig_exclude_patterns = ['fugitive://.*'] " Ensure to works well with fugitive
-let g:EditorConfig_exclude_patterns = ['scp://.*']      " Avoid loading EditorConfig for any remote files over ssh
-
-
+" Capslock and escape has been swapped
+" http://vim.wikia.com/wiki/Map_caps_lock_to_escape_in_XWindows
+imap <leader>c <Plug>CapsLockToggle
+nmap <leader>C <Plug>CapsLockToggle
 
 "
-" clang_complete
+" vim-commentary
 "
-let g:clang_library_path='/usr/local/lib/libclang.so.7'
-let g:clang_snippets = 1
-let g:clang_snippets_engine = 'ultisnips'
+" https://github.com/tpope/vim-commentary#faq
+autocmd FileType apache setlocal commentstring=#\ %s
+" To have // by default for c and cpp
+" setlocal commentstring=//\ %s in after/ftplugin/c.vim
+" setlocal commentstring=//\ %s in after/ftplugin/cpp.vim
+
+"
+" NERD tree
+"
+map <leader>nn <plug>NERDTreeTabsToggle<CR>
+" NerdTreeStatusline
+
+" 
+" nerdtree-git-plugin symbols
+"
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
+"
+" vim-nerdtree-tab
+"
+let g:nerdtree_tabs_open_on_console_startup=1
+" Do not turn this off, which could cause fugitive work unormal. 
+" Automatically find and select currently opened file in NERDTree
+"let g:nerdtree_tabs_autofind=1
+" When switching into a tab, make sure that focus is on the file window
+let g:nerdtree_tabs_focus_on_files=1
+" Open NERDTree only if directory was given
+let g:nerdtree_tabs_open_on_console_startup=2
+
+"
+" vim-go
+"
+let g:go_fmt_command = "goimports"
+let g:go_autodetect_gopath = 1
+let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
+" use only quickfix for all lists
+let g:go_list_type = "quickfix"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_build_constraints=1
+let g:go_metalinter_enabled= ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 0
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_deadline = "5s"
+let g:go_version_warning = 0
+" Open :GoDeclsDir with ctrl-g
+nmap <C-g> :GoDeclsDir<cr>
+imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
+augroup go
+  autocmd!
+  " Show by default 4 spaces for a tab
+  autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+  " :GoBuild and :GoTestCompile
+  autocmd FileType go nmap <leader>bb :<C-u>call <SID>build_go_files()<CR>
+  " :GoTest
+  autocmd FileType go nmap <leader>tt  <Plug>(go-test)
+  " :GoRun
+  autocmd FileType go nmap <leader>rr  <Plug>(go-run)
+  " :GoDoc
+  autocmd FileType go nmap <leader>dd <Plug>(go-doc)
+  " :GoCoverageToggle
+  autocmd FileType go nmap <leader>cc <Plug>(go-coverage-toggle)
+  " :GoInfo
+  autocmd FileType go nmap <leader>ii <Plug>(go-info)
+  " :GoMetaLinter
+  autocmd FileType go nmap <leader>ll <Plug>(go-metalinter)
+  " :GoDef but opens in a vertical split
+  autocmd FileType go nmap <leader>vv <Plug>(go-def-vertical)
+  " :GoDef but opens in a horizontal split
+  autocmd FileType go nmap <leader>ss <Plug>(go-def-split)
+  " :GoAlternate  commands :A, :AV, :AS and :AT
+  autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+  autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+  autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+  autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+augroup END
+" build_go_files is a custom function that builds or compiles the test file.
+" It calls :GoBuild if its a Go file, or :GoTestCompile if it's a test file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
 
 
 "
@@ -564,36 +491,14 @@ let g:tagbar_type_go = {
         \ 'ctagsargs' : '-sort -silent'
 \ }
 
-
-
-"
-" errormarker
-"
-let &errorformat="%f:%l:%c: %t%*[^:]:%m,%f:%l: %t%*[^:]:%m," . &errorformat  " Distinguish between warning and errors for gcc
-
-
-"
-" ale
-"
-map <leader>al :ALEToggle<cr>
-let g:ale_enabled = 0
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_filetype_changed = 0
-let g:ale_lint_on_save = 0
-let g:ale_set_highlights = 0
-
-
 "
 " cscope
 "
 if has("cscope")
-
     """"""""""""" Standard cscope/vim boilerplate
     "
     " NOTE invoke /usr/local/bin/gentags at beginning
     "
-
     "set csprg=/usr/bin/cscope
 
     " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
@@ -618,7 +523,6 @@ if has("cscope")
     " show msg when any other cscope db added
     set csverb
 
-
     """"""""""""" My cscope/vim key mappings
     "
     " The following maps all invoke one of the following cscope search types:
@@ -640,13 +544,11 @@ if has("cscope")
     " 'time.h', and not 'sys/time.h', etc. (by default cscope will return all
     " files that contain 'time.h' as part of their name).
 
-
     " To do the first type of search, hit '<leader>c', followed by one of the
     " cscope search types above (s,g,c,t,e,f,i,d).  The result of your cscope
     " search will be displayed in the current window.  You can use CTRL-T to
     " go back to where you were before the search.
     "
-
     nmap <leader>ss :cs find s <C-R>=expand("<cword>")<CR><CR>
     nmap <leader>sg :cs find g <C-R>=expand("<cword>")<CR><CR>
     nmap <leader>sc :cs find c <C-R>=expand("<cword>")<CR><CR>
@@ -655,7 +557,6 @@ if has("cscope")
     nmap <leader>sf :cs find f <C-R>=expand("<cfile>")<CR><CR>
     nmap <leader>si :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
     nmap <leader>sd :cs find d <C-R>=expand("<cword>")<CR><CR>
-
 
     """"""""""""" key map timeouts
     "
@@ -684,9 +585,7 @@ if has("cscope")
     " timeoutlent (default: 1000 = 1 second, which is sluggish) is used.
     "
     "set ttimeoutlen=100
-
 endif
-
 
 "
 " a.vim
@@ -706,6 +605,10 @@ endif
 " <leader>is switches to the alternate file of file under cursor (e.g. on  <foo.h> switches to foo.cpp)
 " <leader>ihn cycles through matches
 
+"
+" grep.vim
+"
+nnoremap <silent> <F3> :Grep<cr>
 
 "
 " Conque-GDB
@@ -714,8 +617,6 @@ let g:ConqueGdb_Leader = '\'
 let g:ConqueGdb_SaveHistory = 1
 nnoremap <silent> <C-\>Y :ConqueGdbCommand y<cr>
 nnoremap <silent> <C-\>N :ConqueGdbCommand n<cr>
-
-
 "
 " ConqueTerm
 "
@@ -723,181 +624,55 @@ nnoremap <C-\>b     :ConqueTermSplit bash<cr>
 nnoremap <C-\>vb    :ConqueTermVSplit bash<cr>
 "
 "https://michaelthessel.com/go-vim-debugging-with-gdb/
-"
 let g:ConqueTerm_Color = 2
 let g:ConqueTerm_CloseOnEnd = 1
 let g:ConqueTerm_StartMessages = 0
 
+"
+" ale
+"
+map <leader>al :ALEToggle<cr>
+nmap <silent> <leader>p <Plug>(ale_previous_wrap)
+nmap <silent> <leader>n <Plug>(ale_next_wrap)
+let g:ale_enabled = 0
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_filetype_changed = 0
+let g:ale_lint_on_save = 0
+let g:ale_set_highlights = 0
+let g:ale_completion_enabled = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_list_window_size = 8
 
 "
-" grep.vim
+" deoplete
 "
-nnoremap <silent> <F3> :Grep<cr>
-
-
-"
-" vim-fugitive
-"
-" https://github.com/tpope/vim-fugitive#faq
-" patch that automatically opens the quickfix window after :Ggrep
-autocmd QuickFixCmdPost *grep* cwindow
-" Prevent Glog output to ternimal instead of quickfix window
-" https://github.com/tpope/vim-fugitive/issues/677
-nnoremap <leader>gl :silent! Glog<CR> :redraw!<CR>
-
-" vim-gitgutter
-"
-let g:gitgutter_diff_args = '-w'      "ignore whitespace
-"
-" Turn off realtime update
-" Add this to your vim configuration (in an /after/plugin directory):
-" .vim/after/plugin/gitgutter.vim
-" autocmd! gitgutter CursorHold,CursorHoldI
-"
-" Update signs when save a file
-"autocmd BufWritePost * GitGutter
-
-
-"
-" git-blame.vim
-"
-nnoremap <silent> <leader>s :<C-u>call gitblame#echo()<CR>
-
-
-""""""""""""""""""""""""""""""
-"Capslock and escape has been swapped
-"http://vim.wikia.com/wiki/Map_caps_lock_to_escape_in_XWindows
-"""""""""""""""""""""""""""""" 
-"
-" vim-capslock
-"
-imap <leader>c <Plug>CapsLockToggle
-nmap <leader>C <Plug>CapsLockToggle
-
-
-"
-" vim-commentary
-"
-" https://github.com/tpope/vim-commentary#faq
-autocmd FileType apache setlocal commentstring=#\ %s
-"
-" To have // by default for c and cpp
-" setlocal commentstring=//\ %s in after/ftplugin/c.vim
-" setlocal commentstring=//\ %s in after/ftplugin/cpp.vim
-
-" http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
-" c, cpp single-line comment
-au FileType c,cpp setlocal comments-=:// comments+=f://
-
-"
-" neocomplete
-"
-" need to build vim with lua
-" https://gist.github.com/webgefrickel/5f86346208be23a523e0c4ad7674dca7
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_auto_close_preview = 0 " prevent from close DiffGitCached window from vim-fugitive
-" if not work with clang-complete, try following setting
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.c =
-      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-let g:neocomplete#force_omni_input_patterns.cpp =
-      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-let g:neocomplete#force_omni_input_patterns.objc =
-      \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)'
-let g:neocomplete#force_omni_input_patterns.objcpp =
-      \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
-let g:clang_complete_auto = 0
-let g:clang_auto_select = 0
-let g:clang_omnicppcomplete_compliance = 0
-let g:clang_make_default_keymappings = 0
-let g:clang_use_library = 1
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
+" press <C-y> on the candidate to select response
+let g:python3_host_prog = '/usr/bin/python3'
+" Enable deoplete when InsertEnter.
+let g:deoplete#enable_at_startup = 0
+autocmd InsertEnter * call deoplete#enable()
+" Enable smart case
+call deoplete#custom#option('smart_case', v:true)
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
+function! s:my_cr_function() abort
+  return deoplete#close_popup() . "\<CR>"
 endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-
-"
-" vim-marching
-"
-"
-let g:marching_clang_command = "/usr/local/bin/clang"
-let g:marching#clang_command#options = {
-\	"cpp" : "-std=gnu++1y"
-\}
-let g:marching_include_paths = [
-\    "/usr/include/c++",
-\    "/usr/local/include/c++",
-\    "/usr/include/boost"
-\]
-
-let g:marching_enable_neocomplete = 1
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-
-let g:neocomplete#force_omni_input_patterns.cpp =
-	\ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-
-let g:marching#default_config = {
-\	"ignore_pat" : '^_\D'
-\}
-
-let g:marching_backend = "sync_clang_command"
-imap <buffer> <C-x><C-o> <Plug>(marching_start_omni_complete)
-imap <buffer> <C-x><C-x><C-o> <Plug>(marching_force_start_omni_complete)
+" Complete filename after "="
+set isfname-==
+" Enable auto select feature
+set completeopt+=noinsert
+" Close preview window after completion done
+autocmd CompleteDone * silent! pclose!
+" Disable auto completion for tex file
+autocmd FileType tex
+\ call deoplete#custom#buffer_option('auto_complete', v:false)
+"call deoplete#custom#option('sources', {
+"\ '_': ['buffer'],
+"\ 'cpp': ['buffer', 'tag'],
+"\})
