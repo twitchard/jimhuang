@@ -130,3 +130,32 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
   eval $(ssh-agent) > /dev/null
   ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
 fi
+#
+ulimit -n 4000
+
+# deb pakcaging
+DEBEMAIL="jimhuaang@outlook.com"
+DEBFULLNAME="Jim Huang"
+export DEBMAIL DEBFULLNAME
+
+# mc related
+export HISTCONTROL=ignoreboth
+. /usr/lib/mc/mc.sh
+
+
+#tgdb
+alias tgdb='tmux new gdb -x ~/.tgdbinit'
+
+#qfs go path
+export go_qfs="$HOME/go/src/git.internal.yunify.com/qingstor-file-storage/"
+export go_jim="$HOME/go/src/github.com/jimhuaang/"
+
+# Get color support for 'less'
+export LESS="--RAW-CONTROL-CHARS"
+
+# Use colors for less, man, etc.
+[[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
+
+# Swap CapsLock and escape
+xmodmap ~/.speedswapper
+

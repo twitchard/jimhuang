@@ -9,4 +9,4 @@
 exec i3
 
 # Swap CapsLock and escape
-xmodmap ~/.speedswapper
+# xmodmap ~/.speedswapper
