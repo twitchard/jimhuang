@@ -40,7 +40,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
 Plugin 'vimwiki/vimwiki'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'fatih/molokai'         " color schema
 Plugin 'fatih/vim-go'
 Plugin 'jodosha/vim-godebug'
@@ -323,11 +322,6 @@ let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#tagbar#flags = 'f'
 let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
-let airline#extensions#syntastic#error_symbol = 'E:'
-let airline#extensions#syntastic#stl_format_err = '%E{[%e(#%fe)]}'
-let airline#extensions#syntastic#warning_symbol = 'W:'
-let airline#extensions#syntastic#stl_format_warn = '%W{[%w(#%fw)]}'
 
 "
 " vim-auto-save
@@ -695,10 +689,3 @@ let g:clang_snippets_engine = 'ultisnips'
 filetype plugin on
 syntax on
 
-"
-" syntastic
-"
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0

@@ -107,7 +107,6 @@ Plugin 'vim-scripts/sudo.vim'
 Plugin 'osyo-manga/vim-reunions'
 Plugin 'osyo-manga/vim-marching'      "Asynchronous code completion for C and C++
 
-Plugin 'vim-syntastic/syntastic'
 Plugin 'vimwiki/vimwiki'
 
 call vundle#end()            " required
@@ -493,11 +492,6 @@ let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#tagbar#flags = 'f'
 let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
-let airline#extensions#syntastic#error_symbol = 'E:'
-let airline#extensions#syntastic#stl_format_err = '%E{[%e(#%fe)]}'
-let airline#extensions#syntastic#warning_symbol = 'W:'
-let airline#extensions#syntastic#stl_format_warn = '%W{[%w(#%fw)]}'
 
 "
 " vim-auto-save
@@ -905,11 +899,3 @@ let g:marching_backend = "sync_clang_command"
 imap <buffer> <C-x><C-o> <Plug>(marching_start_omni_complete)
 imap <buffer> <C-x><C-x><C-o> <Plug>(marching_force_start_omni_complete)
 
-
-"
-" syntastic
-"
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
