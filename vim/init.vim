@@ -161,6 +161,8 @@ let mapleader = ","
 
 " paste from system clipboard 
 nnoremap p "+p
+" copy to system clipboard
+nnoremap yy "+y
 
 "-- Move to window
 map <C-j> <C-W>j
