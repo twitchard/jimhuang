@@ -75,6 +75,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-dadbod'               "interact with database
 Plugin 'tpope/vim-eunuch'               " vim sugar for unix shell command
 Plugin 'tpope/vim-dispatch'             " Asynchronous build and test dispatcher
+Plugin 'tpope/repeat'
 
 Plugin '907th/vim-auto-save'
 Plugin 'jiangmiao/auto-pairs'

@@ -54,7 +54,8 @@ Plugin 'tpope/vim-rhubarb.git' " enable Gbrowse, fugitive addin
 Plugin 'tpope/vim-capslock'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'  "mappings for commonly used ex commands
+Plugin 'tpope/vim-unimpaired'  " mappings for commonly used ex commands
+Plugin 'tpope/repeat'          " adds . repeat support for certain plugins
 Plugin 'tpope/vim-dadbod'      " interact with database
 Plugin 'tpope/vim-eunuch'      " vim sugar for unix shell command
 Plugin 'tpope/vim-dispatch'    " Asynchronous build and test dispatcher
