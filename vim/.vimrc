@@ -49,6 +49,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 
 Plugin 'flazz/vim-colorschemes'         " could use fatih/moloki
+Plugin 'tomasiser/vim-code-dark'
 
 Plugin 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
@@ -76,6 +77,7 @@ Plugin 'tpope/vim-eunuch'               " vim sugar for unix shell command
 Plugin 'tpope/vim-dispatch'             " Asynchronous build and test dispatcher
 
 Plugin '907th/vim-auto-save'
+Plugin 'jiangmiao/auto-pairs'
 
 Plugin 'editorconfig/editorconfig-vim'  " have dependency, see github page
 
@@ -129,8 +131,10 @@ call vundle#end()            " required
 set shell=bash
 set shellpipe=>                 " prevent output being copied to stdout
 set ttyfast                     " Indicate fast terminal conn for faster redraw
-set ttymouse=xterm2             " Indicate terminal type for mouse codes
-set ttyscroll=3                 " Speedup scrolling
+if !has('nvim')
+  set ttymouse=xterm2             " Indicate terminal type for mouse codes
+  set ttyscroll=3                 " Speedup scrolling
+endif
 set laststatus=2                " Show status line always
 set encoding=utf-8              " Set default encoding to UTF-8
 set autoread                    " Automatically read changed files
@@ -185,9 +189,10 @@ endif
 " Colorscheme
 """""""""""""""""""""
 syntax enable
-:set t_Co=256
 let g:rehash256 = 1
-colorscheme molokai
+set t_Co=256
+set t_ut=
+colorscheme codedark
 
 """""""""""""""""""""""
 " Setting path variable
@@ -459,7 +464,7 @@ augroup END
 "
 "let g:airline_section_b = '%{strftime("%c")}'
 "let g:airline_section_y = 'BN: %{bufnr("%")}'
-let g:airline_solarized_bg='dark'
+let g:airline_theme = 'codedark'
 let g:airline#extensions#tabline#enabled = 1  " enable smart tabline, use :bp, :bn
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#show_tab_nr = 1

@@ -40,6 +40,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
 Plugin 'vimwiki/vimwiki'
+Plugin 'tomasiser/vim-code-dark'
 Plugin 'fatih/molokai'         " color schema
 Plugin 'fatih/vim-go'
 Plugin 'jodosha/vim-godebug'
@@ -61,6 +62,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'zivyangll/git-blame.vim'
 Plugin 'editorconfig/editorconfig-vim'  " have dependency, see github page
 Plugin '907th/vim-auto-save'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
@@ -148,10 +150,11 @@ highlight SpecialKey guifg=#4a4a59
 highlight ColorColumn ctermbg=darkgray
 " Colorscheme
 syntax enable
-:set t_Co=256
+set t_Co=256
 let g:rehash256 = 1
-colorscheme molokai
-
+"colorscheme molokai
+set t_ut=
+colorscheme codedark
 
 """"""""""""""""""""""""
 " Mapping
@@ -293,7 +296,7 @@ let g:EditorConfig_exclude_patterns = ['scp://.*']
 "
 " airline
 "
-"let g:airline_solarized_bg='dark'
+let g:airline_theme = 'codedark'
 " enable smart tabline, use :bp, :bn
 let g:airline#extensions#tabline#enabled = 1  
 let g:airline#extensions#tabline#formatter = 'unique_tail'
