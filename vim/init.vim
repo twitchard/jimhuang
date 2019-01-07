@@ -117,6 +117,7 @@ set secure                      " Restrict usage of some commands in non-default
 set colorcolumn=100             " highlight column number 100 with color
 "set timeoutlen=500              " set timoutlen for mappling delay in millseconds (default 1000)
 set updatetime=100               " in milliseconds (default 4000)
+set clipboard+=unnamedplus      " Alwyas use clipboard for ALL operations
 " This enables us to undo files even if you exit Vim.
 if has('persistent_undo')
   set undofile
@@ -157,6 +158,9 @@ colorscheme molokai
 """"""""""""""""""""""""
 " Set leader shortcut to a comma ','. By default it's the backslash
 let mapleader = ","
+
+" paste from system clipboard 
+nnoremap p "+p
 
 "-- Move to window
 map <C-j> <C-W>j
