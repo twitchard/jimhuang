@@ -673,7 +673,7 @@ endfunction
 " Complete filename after "="
 set isfname-==
 " Enable auto select feature
-set completeopt+=noinsert
+" set completeopt+=noinsert
 " Close preview window after completion done
 autocmd CompleteDone * silent! pclose!
 " Disable auto completion for tex file
