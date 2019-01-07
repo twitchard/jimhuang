@@ -462,8 +462,9 @@ augroup END
 "
 " airline
 "
-"let g:airline_section_b = '%{strftime("%c")}'
-"let g:airline_section_y = 'BN: %{bufnr("%")}'
+" require to install powerline
+" https://powerline.readthedocs.io/en/latest/installation/linux.html#fonts-installation
+let g:airline_powerline_fonts = 1
 let g:airline_theme = 'codedark'
 let g:airline#extensions#tabline#enabled = 1  " enable smart tabline, use :bp, :bn
 let g:airline#extensions#tabline#formatter = 'unique_tail'

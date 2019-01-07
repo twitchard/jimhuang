@@ -296,6 +296,9 @@ let g:EditorConfig_exclude_patterns = ['scp://.*']
 "
 " airline
 "
+" require to install powerline
+" https://powerline.readthedocs.io/en/latest/installation/linux.html#fonts-installation
+let g:airline_powerline_fonts = 1
 let g:airline_theme = 'codedark'
 " enable smart tabline, use :bp, :bn
 let g:airline#extensions#tabline#enabled = 1  
