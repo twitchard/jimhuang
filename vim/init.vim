@@ -39,7 +39,7 @@ filetype plugin indent on       " ... and enable filetype detection
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
-"Plugin 'vimwiki/vimwiki'
+Plugin 'vimwiki/vimwiki'
 Plugin 'fatih/molokai'         " color schema
 Plugin 'fatih/vim-go'
 Plugin 'jodosha/vim-godebug'
@@ -72,6 +72,7 @@ Plugin 'vim-scripts/grep.vim'           " Search tools(grep, egrep, fgrep, agrep
 Plugin 'w0rp/ale'                       " Asynchronouse linting/fixing
 Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plugin 'Shougo/deoplete-clangx'         " c/c++ completion using clang for deoplete
+Plugin 'Shougo/neoinclude.vim'
 Plugin 'Shougo/context_filetype.vim'
 Plugin 'Shougo/neco-syntax'             " use the syntax file as a completion source 
 Plugin 'Shougo/echodoc.vim'             " look selected func' args in deoplete
@@ -676,3 +677,15 @@ autocmd FileType tex
 "\ '_': ['buffer'],
 "\ 'cpp': ['buffer', 'tag'],
 "\})
+" Change clang binary path
+call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
+let g:clang_library_path='/usr/local/lib/libclang.so.7'
+let g:clang_snippets = 1
+let g:clang_snippets_engine = 'ultisnips'
+
+"
+" vimwiki/vimwiki
+"
+filetype plugin on
+syntax on
+
