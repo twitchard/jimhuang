@@ -265,7 +265,9 @@ autocmd FileType qf wincmd J
 augroup c
     autocmd!
     autocmd BufRead,BufNewFile *.h,*.c set filetype=c
-    autocmd BufRead,BufNewFile *.hxx,*.hpp,*.cxx,*.cpp set filetype=c
+    autocmd BufRead,BufNewFile *.hxx,*.hpp,*.cxx,*.cpp set filetype=cpp
+"    autocmd BufNewFile,BufRead *.h,*.hxx,*.hpp,*.c,*.cxx,*.cpp 
+    "\ setlocal expandtab tabstop=4 shiftwidth=4
 augroup END
 
 
