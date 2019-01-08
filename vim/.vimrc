@@ -513,7 +513,7 @@ let g:airline#extensions#ale#enabled = 1
 " vim-auto-save
 "
 let g:auto_save = 1
-let g:auto_save_events = ["FocusLost","WinLeave","TabLeave","BufWritePost","BufLeave","DirChanged","TabClosed"]
+let g:auto_save_events = ["FocusLost","WinLeave","TabLeave","BufLeave","DirChanged","TabClosed"]
 
 
 
@@ -927,4 +927,4 @@ nnoremap <leader>u :GundoToggle<cr>
 let g:ctrlp_match_window = 'bottom,order:ttb'
 " change work directory during vim session and make CtrlP respect that change
 let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_m
+let g:ctrlp_working_path_mode = 0
