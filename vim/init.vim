@@ -40,6 +40,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
 Plugin 'vimwiki/vimwiki'
+Plugin 'simnalamburt/vim-mundo' " display undo tree in graphic form for neovim 
 Plugin 'tomasiser/vim-code-dark'
 Plugin 'fatih/molokai'         " color schema
 Plugin 'fatih/vim-go'
@@ -55,7 +56,7 @@ Plugin 'tpope/vim-capslock'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'  " mappings for commonly used ex commands
-Plugin 'tpope/repeat'          " adds . repeat support for certain plugins
+Plugin 'tpope/vim-repeat'          " adds . repeat support for certain plugins
 Plugin 'tpope/vim-dadbod'      " interact with database
 Plugin 'tpope/vim-eunuch'      " vim sugar for unix shell command
 Plugin 'tpope/vim-dispatch'    " Asynchronous build and test dispatcher
@@ -722,9 +723,9 @@ let g:clang_library_path='/usr/local/lib/libclang.so.7'
 let g:clang_snippets = 1
 let g:clang_snippets_engine = 'ultisnips'
 
-"
-" vimwiki/vimwiki
-"
-filetype plugin on
-syntax on
 
+"
+" gundo.vim
+"
+" https://simnalamburt.github.io/vim-mundo/ for good intro
+nnoremap <leader>u :MundoToggle<cr>

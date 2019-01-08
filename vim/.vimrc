@@ -75,7 +75,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-dadbod'               "interact with database
 Plugin 'tpope/vim-eunuch'               " vim sugar for unix shell command
 Plugin 'tpope/vim-dispatch'             " Asynchronous build and test dispatcher
-Plugin 'tpope/repeat'
+Plugin 'tpope/vim-repeat'
 
 Plugin '907th/vim-auto-save'
 Plugin 'jiangmiao/auto-pairs'
@@ -111,6 +111,7 @@ Plugin 'osyo-manga/vim-reunions'
 Plugin 'osyo-manga/vim-marching'      "Asynchronous code completion for C and C++
 
 Plugin 'vimwiki/vimwiki'
+Plugin 'sjl/gundo.vim'
 
 call vundle#end()            " required
 " To ignore plugin indent changes, instead use:
@@ -914,3 +915,7 @@ let g:marching_backend = "sync_clang_command"
 imap <buffer> <C-x><C-o> <Plug>(marching_start_omni_complete)
 imap <buffer> <C-x><C-x><C-o> <Plug>(marching_force_start_omni_complete)
 
+"
+" gundo.vim
+"
+nnoremap <leader>u :GundoToggle<cr>
