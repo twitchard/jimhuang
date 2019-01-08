@@ -259,6 +259,15 @@ au FileType c,cpp,go setlocal comments-=:// comments+=f://
 " the very bottom (see :help :wincmd and :help ^WJ).
 autocmd FileType qf wincmd J
 
+"
+" c
+"
+augroup c
+    autocmd!
+    autocmd BufRead,BufNewFile *.h,*.c set filetype=c
+    autocmd BufRead,BufNewFile *.hxx,*.hpp,*.cxx,*.cpp set filetype=c
+augroup END
+
 
 """"""""""""""""""""""""""""""
 " Plugins
@@ -680,9 +689,9 @@ endfunction
 " Complete filename after "="
 set isfname-==
 " Enable auto select feature
-" set completeopt+=noinsert
+ set completeopt+=noinsert
 " Close preview window after completion done
-autocmd CompleteDone * silent! pclose!
+" autocmd CompleteDone * silent! pclose!
 " Disable auto completion for tex file
 autocmd FileType tex
 \ call deoplete#custom#buffer_option('auto_complete', v:false)
