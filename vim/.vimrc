@@ -919,3 +919,12 @@ imap <buffer> <C-x><C-x><C-o> <Plug>(marching_force_start_omni_complete)
 " gundo.vim
 "
 nnoremap <leader>u :GundoToggle<cr>
+
+"
+" ctrlp
+"
+" order matching files top to bottom with ttb
+let g:ctrlp_match_window = 'bottom,order:ttb'
+" change work directory during vim session and make CtrlP respect that change
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_m

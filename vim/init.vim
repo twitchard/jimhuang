@@ -275,9 +275,6 @@ au FileType c,cpp,go setlocal comments-=:// comments+=f://
 " the very bottom (see :help :wincmd and :help ^WJ).
 autocmd FileType qf wincmd J
 
-"
-" c
-"
 augroup c
     autocmd!
     autocmd BufRead,BufNewFile *.h,*.c set filetype=c
@@ -362,6 +359,16 @@ let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#tagbar#flags = 'f'
 let g:airline#extensions#ale#enabled = 1
+
+"
+" ctrlp
+"
+" order matching files top to bottom with ttb
+let g:ctrlp_match_window = 'bottom,order:ttb'
+" change work directory during vim session and make CtrlP respect that change
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+
 
 "
 " vim-auto-save
@@ -708,8 +715,6 @@ endfunction
 set isfname-==
 " Enable auto select feature
  set completeopt+=noinsert
-" Close preview window after completion done
-" autocmd CompleteDone * silent! pclose!
 " Disable auto completion for tex file
 autocmd FileType tex
 \ call deoplete#custom#buffer_option('auto_complete', v:false)
