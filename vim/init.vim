@@ -126,6 +126,9 @@ if has('persistent_undo')
   set undofile
   set undodir=~/.config/vim/tmp/undo//
 endif
+set foldenable                  " enable folding
+set foldlevelstart=10           " open most folder by default
+set foldnestmax=10              " 10 nested fold max
 
 """""""""""""""""""""""
 " Setting path variable
@@ -163,10 +166,13 @@ colorscheme codedark
 " Set leader shortcut to a comma ','. By default it's the backslash
 let mapleader = ","
 
+"-- copy & paste
 " paste from system clipboard 
 nnoremap p "+p
 " copy to system clipboard
 nnoremap yy "+y
+" Act like Delete and Copy
+nnoremap Y y$
 
 "-- Move to window
 map <C-j> <C-W>j
@@ -206,12 +212,21 @@ nmap <leader>w :w!<cr>
 " search will center on the line it's found in.
 nnoremap n nzzzv
 nnoremap N Nzzzv
+" Visual linewise up and down by default (and use gj gk to go quicker)
+noremap <Up> gk
+noremap <Down> gj
+noremap j gj
+noremap k gk
 " Turn off the highlights until you next search
 nnoremap <leader><Enter> :noh<CR>   
 " Shortcut to rapidly toggle `set list`, will show invisible
 nmap <leader>l :set list!<CR>
 " Close quickfix window
 nnoremap <leader>a :cclose<CR>
+" space open/close folds
+nnoremap <space> za
+" jk is escape
+inoremap jk <esc>
 
 """"""""""""""""""""""""""""""
 " Commands

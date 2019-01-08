@@ -184,6 +184,9 @@ if has('persistent_undo')
   set undofile
   set undodir=~/.config/vim/tmp/undo//
 endif
+set foldenable                  " enable folding
+set foldlevelstart=10           " open most folder by default
+set foldnestmax=10              " 10 nested fold max
 
 
 """""""""""""""""""""
@@ -233,6 +236,11 @@ nnoremap <leader><Enter> :noh<CR>   " Turn off the highlights until you next sea
 
 " Act like D and C
 nnoremap Y y$
+
+" space open/close folds
+nnoremap <space> za
+" jk is escape
+inoremap jk <esc>
 
 " Enter automatically into the files directory
 "autocmd BufEnter * silent! lcd %:p:h
