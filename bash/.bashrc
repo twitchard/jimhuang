@@ -157,5 +157,5 @@ export LESS="--RAW-CONTROL-CHARS"
 [[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
 
 # Swap CapsLock and escape
-xmodmap ~/.speedswapper
+setxkbmap -option caps:swapescape
 
